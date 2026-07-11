@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>舞台收藏與推薦排行榜</title>
+    <link rel="icon" href="https://flareu-tw-trans.github.io/images/favicon.png" type="image/png">
+    
+    <style>
+        :root { --bg-color: #111111; --card-bg: #1a1a1a; --text-color: #ffffff; --text-muted: #aaaaaa; --emerald-green: #119da4; 
+            --emerald-hover: #0c7c82; --burgundy: #a63a50; --gold: #ffd700; --silver: #c0c0c0; --bronze: #cd7f32; }
+        body { margin: 0; background: var(--bg-color); color: var(--text-color);
+            font-family: Arial, "Noto Sans TC", sans-serif; padding: 20px; padding-bottom: 60px; }
+        h1 { text-align: center; margin-bottom: 30px; font-size: 2.4rem; letter-spacing: 4px; font-weight: 800;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 30%, #a1c4fd 70%, #c2e9fb 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 4px rgba(255,255,255,0.15)); } 
+        .top-menu{ display:flex; justify-content:center; gap:10px; margin-bottom:25px; flex-wrap:wrap; }
+
+       .nav-btn{ background:#2b2b2b; color:#fff; border:none; border-radius:20px; padding:10px 20px;
+            text-decoration:none; cursor:pointer; font-weight:600; font-size:14px; transition:.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .nav-btn:hover{ background:#3d3d3d; }
+        .nav-btn.active{ background:var(--burgundy); }
+
+        #ranking-btn.active{ background:#a63a50; }
+        #favorite-btn.active{ background:#d49a00; }       
+
+        /* ===== 說明欄 ===== */
+        #info-btn { background: #333333; border: 1px solid rgba(255,255,255,0.1); }
+        #info-btn:hover { background: #444444; }
+
+        /* 分類按鈕 */
+        .category-menu button[data-category="group"].active{ background: #a2e8dd; color: #0f4c43; font-weight: 700; border: none; }
+        .category-menu button[data-category="liyu"].active{ background: #6eb7e8; color: #fff; font-weight: 700; border: none; }
+        .category-menu button[data-category="woojin"].active{ background: #b79adf; color: #fff; font-weight: 700; border: none; }
+        
+        /* ===== 收藏區 ===== */
+        #favorites-container{ width:100%; max-width:1600px; margin:0 auto; display:grid; gap:20px; grid-template-columns:1fr; }
+
+        @media (min-width:768px){ #favorites-container{ grid-template-columns:repeat(2,1fr); }}
+        @media (min-width:1200px){ #favorites-container{ grid-template-columns:repeat(3,1fr); }}
+        @media (min-width:1600px){ #favorites-container{ grid-template-columns:repeat(4,1fr); }}
+
+        #favorites-container .thumb-wrapper{ aspect-ratio:16 / 9; height:auto; }
+        #favorites-container .thumb-wrapper img{ width:100%; height:100%; object-fit:cover; }
+        #favorites-container .video-info{ padding:12px; }
+        #favorites-container .video-title{ height:auto; min-height:40px; font-size:14px; }      
+
+        .category-menu { display: flex; gap: 10px; justify-content: center; margin-bottom: 40px; }
+        .category-menu button { border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer;
+            background: #2b2b2b; color: #ffffff; font-weight: 600; font-size: 14px; transition: all 0.2s ease; }
+        .category-menu button.active{ color:#fff; }
+        .category-menu button:hover:not(.active) { background: #3d3d3d; }
+
+        .ranking-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;}
+        .podium-section {display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 20px; align-items: end; margin-bottom: 20px; }
+
+        @media (max-width: 768px) {
+            .podium-section { grid-template-columns: 1fr; align-items: stretch; }
+            .podium-card.rank-1 { order: 1; }
+            .podium-card.rank-2 { order: 2; }
+            .podium-card.rank-3 { order: 3; }
+        }
+
+        .podium-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease; position: relative; border: 1px solid rgba(255,255,255,0.05);}
+        .podium-card:hover { transform: translateY(-5px); }
+
+        .rank-1 { border: 2px solid var(--gold); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15); }
+        .rank-1 .thumb-wrapper { height: 220px; }
+        .rank-1 .rank-badge { background: var(--gold); color: #000; font-size: 24px; width: 45px; height: 45px; }
+        .rank-1 .video-title { font-size: 18px; font-weight: 700; }
+
+        .rank-2 { border: 1px solid var(--silver); }
+        .rank-2 .thumb-wrapper { height: 180px; }
+        .rank-2 .rank-badge { background: var(--silver); color: #000; }
+
+        .rank-3 { border: 1px solid var(--bronze); }
+        .rank-3 .thumb-wrapper { height: 160px; }
+        .rank-3 .rank-badge { background: var(--bronze); color: #fff; }
+
+        .thumb-wrapper { position: relative; width: 100%; background: #000; display: block; cursor: pointer;}
+        .thumb-wrapper img { width: 100%; height: 100%; object-fit: cover;}
+
+        .rank-badge { position: absolute; top: 12px; left: 12px; width: 35px; height: 35px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; font-weight: 800; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); z-index: 2; }
+
+        .video-info { padding: 16px; text-align: left;}
+        .video-title { font-size: 15px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.4; display: -webkit-box;
+            -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 42px; }
+        .count-badge { display: inline-block; background: rgba(166, 58, 80, 0.15); color: #ff8a9e; padding: 4px 12px;
+            border-radius: 12px; font-size: 13px; font-weight: 700; border: 1px solid rgba(166, 58, 80, 0.3); }
+        .no-data { text-align: center; padding: 4px 0; color: var(--text-muted); font-size: 15px; grid-column: 1 / -1; }
+
+        .remove-fav-btn:hover { background-color: #ff8a9e !important;  color: #ffffff !important; transform: scale(1.03); }
+        .remove-fav-btn:active { transform: scale(0.97); }
+
+        /* 說明框 */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0, 0, 0, 0.45); 
+            display: flex; align-items: center; justify-content: center; z-index: 9999; 
+            opacity: 0; padding: 20px; box-sizing: border-box; 
+        }
+        
+        .modal-content { 
+            position: relative; 
+            background: #f9f9fb; 
+            border: 2px solid #e1d7c6; 
+            border-radius: 20px; width: 100%; max-width: 540px; padding: 35px; box-sizing: border-box; 
+            color: #2c3e50; 
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); 
+            max-height: 85vh;       
+            overflow-y: auto;       
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* 標題區 */
+        .modal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 2px solid #eaeaea; padding-bottom: 15px; }
+        .modal-icon { font-size: 24px; color: #dbaf57; }
+        .modal-header h2 { font-size: 24px; margin: 0; font-weight: 700; color: #2c3e50; letter-spacing: 0.5px; }
+        
+        /* 內文 */
+        .modal-body p { font-size: 17px; line-height: 1.65; color: #34495e; margin-top: 0; margin-bottom: 18px; }
+        
+        .guide-list { list-style: none; padding: 0; margin: 22px 0; }
+        .guide-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        
+        .list-num, .list-dot { color: #7f8c8d; font-size: 16px.5; font-weight: 700; flex-shrink: 0; display: inline-flex;
+            align-items: center; justify-content: center; margin: 0; padding: 0; }
+        .list-dot.warn { color: #e67e22; } 
+        
+        .guide-list p { margin: 0; padding: 0; font-size: 16.5px; color: #34495e; line-height: 1.5; }
+        .guide-list strong { color: #2c3e50; font-weight: 700; background: #eaedf1; padding: 2px 6px; border-radius: 4px; }
+        
+        .highlight-text { color: #e74c3c !important; font-weight: 700; }
+        .modal-footer-text { text-align: center; font-size: 16.5px !important; color: #4b6584 !important; margin-top: 28px !important; margin-bottom: 0 !important; font-weight: 700; }
+        
+        .modal-footer { display: flex; justify-content: center; margin-top: 28px; }
+        
+        /* 關閉按鈕 */
+        .modal-close-btn { background: #2c3e50; color: #ffffff; border: none; padding: 12px 65px;
+            font-size: 16px; font-weight: 600; border-radius: 8px; cursor: pointer; transition: background 0.2s; letter-spacing: 2px; }
+        .modal-close-btn:hover { background: #34495e; }
+    </style>
+</head>
+
+<body>
+
+    <h1>舞台收藏與推薦排行榜</h1>
+
+    <div class="top-menu">
+        <a href="../../index.html" class="nav-btn">🏠 首頁</a>
+        <button id="ranking-btn" class="nav-btn active" onclick="showRanking()">🏆 排行榜</button>
+        <button id="favorite-btn" class="nav-btn" onclick="showFavorites()">⭐ 我的收藏</button>   
+        <button id="info-btn" class="nav-btn" onclick="openInstructionModal()">💡 功能說明</button>   
+    </div>
+
+    <div class="category-menu">
+        <button data-category="group" class="active" onclick="switchCategory('group', this)">團體舞台</button>
+        <button data-category="liyu" onclick="switchCategory('liyu', this)">立于直拍</button>
+        <button data-category="woojin" onclick="switchCategory('woojin', this)">玗進直拍</button>
+    </div>
+
+    <div class="ranking-container" id="ranking-area">
+        <div id="podium-area" class="podium-section">
+            <div class="no-data">資料載入中...</div>
+        </div>
+    </div>
+
+    <div id="favorites-container" style="display:none;"></div>
+
+    <div id="instruction-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-glow"></div>
+        <div class="modal-glow-left"></div>
+    
+        <div class="modal-header">
+          <span class="modal-icon">✨</span>
+          <h2>新功能上線說明</h2>
+        </div>
+    
+        <div class="modal-body">
+          <p>歡迎來到全新的<strong>舞台收藏與推薦排行榜</strong>！以下為本功能的使用小指南：</p>
+      
+          <ul class="guide-list">
+            <li>
+              <span class="list-num">1</span>
+              <p>請從首頁的舞台欄位點進任一<strong>舞台合輯</strong>，觀看影片後可自由選擇點擊 <strong>❤️推薦</strong> 或 <strong>⭐收藏</strong> 按鈕。</p>
+            </li>
+            <li>
+              <span class="list-num">2</span>
+              <p>點擊<strong>推薦</strong>會即時反映在本排行榜上；點擊<strong>收藏</strong>則會收錄在「我的收藏」分頁中。</p>
+            </li>
+            <li>
+              <span class="list-num">3</span>
+              <p>如果畫面的數據沒有即時反應，請嘗試<strong>重新整理網頁 (F5)</strong> 即可。</p>
+            </li>
+            <li>
+              <span class="list-num">⚠️</span>
+              <p class="highlight-text">若您曾在系統測試階段使用過本功能，請先<strong>自行取消全部按鈕後再次點擊</strong>，數據才能完美同步唷！</p>
+            </li>
+          </ul>
+      
+          <div class="modal-footer-text">希望各位U'RE們會喜歡這次開發的新功能！🥰</div>
+        </div>
+    
+        <div class="modal-footer">
+          <button class="modal-close-btn" onclick="closeInstructionModal()">了解</button>
+        </div>
+      </div>
+    </div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    // Firebase 配置 (與您主網頁相同)
+    const firebaseConfig = { 
+        apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", 
+        authDomain: "flareu-tw-translation.firebaseapp.com", 
+        databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", 
+        projectId: "flareu-tw-translation", 
+        storageBucket: "flareu-tw-translation.firebasestorage.app", 
+        messagingSenderId: "753531558153", 
+        appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" 
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // 全域變數，紀錄目前選擇的分類與從 Firebase 撈出來的原始資料
+    window.currentCategory = 'group';
+    window.rawRankingData = {};
+
+    // 【手動添加與連結對照表】
+    const customVideoMapping = {
+        // KCON JAPAN 2026 X STAGE
+        'video_20260509_kconjapan_xstage': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260509_KCONJAPAN2026_X_STAGE/',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260509_KCONJAPAN2026_X_STAGE.webp' 
+        },
+        // 5/14 MCD 系列
+        'video_20260514_mcd_interview': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260514_mcd_interview',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260514_M_COUNTDOWN_EP.928_interview.webp' 
+        },
+        'video_20260514_mcd_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260514_mcd_broadcast',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260514_M_COUNTDOWN_EP.928.webp' 
+        },
+        'video_20260514_mcd_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260514_mcd_fullcam',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260514_M_COUNTDOWN_EP.928_fullcam.webp' 
+        },
+        'video_20260514_mcd_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260514_mcd_liyu',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260514_M_COUNTDOWN_EP.928_liyu.webp' 
+        },
+        'video_20260514_mcd_woojin': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260514_mcd_woojin',
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260514_M_COUNTDOWN_EP.928_woojin.webp' 
+        },
+
+        // 5/15 Music Bank 系列
+        'video_20260515_musicbank_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260515_musicbank_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260515_Music_Bank.webp'
+        },
+        'video_20260515_musicbank_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260515_musicbank_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260515_Music_Bank_fullcam.webp'
+        },
+        'video_20260515_musicbank_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260515_musicbank_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260515_Music_Bank_liyu.webp'
+        },
+        'video_20260515_musicbank_woojin': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260515_musicbank_woojin', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260515_Music_Bank_woojin.webp'
+        },
+
+        // 5/16 音樂中心 系列
+        'video_20260516_musiccore_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260516_musiccore_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260516_Music_Core.webp'
+        },
+        'video_20260516_musiccore_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260516_musiccore_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260516_Music_Core_fullcam.webp'
+        },
+        'video_20260516_musiccore_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260516_musiccore_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260516_Music_Core_liyu.webp'
+        },
+        'video_20260516_musiccore_woojin': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260516_musiccore_woojin', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260516_Music_Core_woojin.webp'
+        },
+
+        // 5/17 人氣歌謠 系列
+        'video_20260517_inkigayo_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260517_inkigayo_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260517_Inkigayo.webp'
+        },
+        'video_20260517_inkigayo_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260514_stage_collection/?video=video_20260517_inkigayo_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260517_Inkigayo_fullcam.webp'
+        },
+
+        // 5/20 接力舞蹈 系列
+        'video_20260520_relaydance': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260520_relaydance', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260520_RelayDance.webp'
+        },
+
+        // 5/21 MCD 系列
+        'video_20260521_mcd_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260521_mcd_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260521_M_COUNTDOWN_EP.929.webp'
+        },
+
+        // 5/22 Music Bank 系列
+        'video_20260522_musicbank_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260522_musicbank_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260522_Music_Bank.webp'
+        },
+
+        // 5/22 [MIC&] , Stone LIVE 系列
+        'video_20260522_stone_live': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260522_stone_live', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260522_MIC&.webp'
+        },
+
+        // 5/23 音樂中心 系列
+        'video_20260523_musiccore_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260523_musiccore_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260523_Music_Core.webp'
+        },
+
+        // 5/24 人氣歌謠 系列
+        'video_20260524_inkigayo_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260524_inkigayo_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260524_Inkigayo.webp'
+        },
+        'video_20260524_inkigayo_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260524_inkigayo_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260524_Inkigayo_fullcam.webp'
+        },
+        'video_20260524_inkigayo_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260524_inkigayo_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260524_Inkigayo_liyu.webp'
+        },
+        'video_20260524_inkigayo_woojin': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260520_stage_collection/?video=video_20260524_inkigayo_woojin', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260524_Inkigayo_woojin.webp'
+        },
+
+        // 5/26 ENA K POP UP CHART SHOW 系列
+        'video_20260526_ena_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260526_ena_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260526_ENA.webp'
+        },
+        'video_20260526_ena_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260526_ena_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260526_ENA_fullcam.webp'
+        },
+        'video_20260526_ena_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260526_ena_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260526_ENA_liyu.webp'
+        },
+
+        // 5/28 MCD 系列
+        'video_20260528_mcd_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260528_mcd_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260528_M_COUNTDOWN_EP.930.webp'
+        },
+        'video_20260528_mcd_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260528_mcd_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260528_M_COUNTDOWN_EP.930_fullcam.webp'
+        },
+        'video_20260528_mcd_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260528_mcd_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260528_M_COUNTDOWN_EP.930_liyu.webp'
+        },
+
+        // 5/29 Music Bank 系列
+        'video_20260529_musicbank_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260529_musicbank_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260529_MusicBank.webp'
+        },
+
+        // 5/30 音樂中心 系列
+        'video_20260530_musiccore_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260530_musiccore_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260530_Music_Core.webp'
+        },
+
+        // 5/30 KCONJAPAN2026 系列
+        'video_20260530_kconjapan_WAY2U': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260530_kconjapan_WAY2U', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260530_KCONJAPAN2026_WAY2U.webp'
+        },
+        'video_20260530_kconjapan_Druck-Dazed': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260530_kconjapan_Druck-Dazed', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260530_KCONJAPAN2026_Druck-Dazed.webp'
+        },
+
+        // 5/31 人氣歌謠 系列
+        'video_20260531_inkigayo_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260531_inkigayo_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260531_Inkigayo.webp'
+        },
+        'video_20260531_inkigayo_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260526_stage_collection/?video=video_20260531_inkigayo_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260531_Inkigayo_fullcam.webp'
+        },
+
+        // 6/2 THESHOW 系列
+        'video_20260602_theshow_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260602_THESHOW_Hyper.webp'
+        },
+        'video_20260602_theshow_Hyper_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_Hyper_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260602_THESHOW_Hyper_fullcam.webp'
+        },
+        'video_20260602_theshow_Hyper_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_Hyper_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260602_THESHOW_Hyper_liyu.webp'
+        },
+        'video_20260602_theshow_WAY2U_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_WAY2U_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260602_THESHOW_WAY2U.webp'
+        },
+        'video_20260602_theshow_WAY2U_fullcam': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_WAY2U_fullcam', 
+            customThumb: 'https://flareu-tw-trans.github.io/images20260602_THESHOW_WAY2U_fullcam.webp'
+        },
+        'video_20260602_theshow_WAY2U_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260602_theshow_WAY2U_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images20260602_THESHOW_WAY2U_liyu.webp'
+        },
+
+        // 6/3 Show Champion EP.599 系列
+        'video_20260603_Show_Champion_broadcast': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260603_Show_Champion_broadcast', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260603_Show_Champion_EP.599.webp'
+        },
+        'video_20260603_Show_Champion_liyu': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260603_Show_Champion_liyu', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260603_Show_Champion_EP.599_liyu.webp'
+        },
+        'video_20260603_Show_Champion_woojin': {
+            link: 'https://flareu-tw-trans.github.io/Stage/20260602_stage_collection/?video=video_20260603_Show_Champion_woojin', 
+            customThumb: 'https://flareu-tw-trans.github.io/images/20260603_Show_Champion_EP.599_woojin.webp'
+        },
+    };
+
+    //說明欄
+    window.openInstructionModal = function() {
+        const modal = document.getElementById("instruction-modal");
+        if (!modal) return;
+        
+        modal.style.display = "flex";
+        modal.style.transition = "opacity 0.3s ease";
+        // 微調延遲確保 display: flex 生效後才做淡入動畫
+        setTimeout(() => {
+            modal.style.opacity = "1";
+        }, 30);
+    };
+
+    window.closeInstructionModal = function() {
+        const modal = document.getElementById("instruction-modal");
+        if (!modal) return;
+        
+        modal.style.opacity = "0";
+        setTimeout(() => {
+            modal.style.display = "none";
+            // 關閉後留下紀錄，下次進網頁就不會自動打擾
+            localStorage.setItem("hasSeenInstructionModal_v1", "true");
+        }, 300);
+    };
+
+    // 網頁 DOM 載入完成後的自動檢查邏輯
+    document.addEventListener("DOMContentLoaded", () => {
+        const hasSeenModal = localStorage.getItem("hasSeenInstructionModal_v1");
+        // 如果是第一次進來（沒有紀錄），就自動觸發開啟
+        if (!hasSeenModal) {
+            window.openInstructionModal();
+        }
+    });
+
+    // 即時監聽整個 stage_rankings 節點
+    const rankingsRef = ref(db, 'stage_rankings');
+    onValue(rankingsRef, (snapshot) => {
+        if (snapshot.exists()) {
+            window.rawRankingData = snapshot.val();
+            renderRankings(); // 只要 Firebase 資料一變，立刻重新渲染
+        } else {
+            document.getElementById('podium-area').innerHTML = '<div class="no-data">目前尚無推薦數據</div>';
+        }
+    });
+
+    // 渲染排行榜主邏輯
+    window.renderRankings = function() {
+        const podiumArea = document.getElementById('podium-area');
+        const categoryData = window.rawRankingData[window.currentCategory];
+
+        if (!categoryData) {
+            podiumArea.innerHTML = '<div class="no-data">該分類目前尚無推薦數據</div>';
+            return;
+        }
+
+        let items = [];
+        Object.keys(categoryData).forEach(videoDbId => {
+            items.push({
+                videoDbId: videoDbId,
+                title: categoryData[videoDbId].title || '未命名舞台',
+                clickCount: categoryData[videoDbId].clickCount || 0,
+                ytId: categoryData[videoDbId].ytId || ''
+            });
+        });
+
+        items.sort((a, b) => b.clickCount - a.clickCount);
+        let topThree = items.slice(0, 3);
+
+        if (topThree.length === 0) {
+            podiumArea.innerHTML = '<div class="no-data">該分類目前尚無推薦數據</div>';
+            return;
+        }
+
+        let displayOrder = [];
+        if (window.innerWidth > 768) {
+            if (topThree[1]) displayOrder.push({ item: topThree[1], rank: 2 });
+            if (topThree[0]) displayOrder.push({ item: topThree[0], rank: 1 });
+            if (topThree[2]) displayOrder.push({ item: topThree[2], rank: 3 });
+        } else {
+            topThree.forEach((item, index) => {
+                displayOrder.push({ item: item, rank: index + 1 });
+            });
+        }
+
+        podiumArea.innerHTML = '';
+        displayOrder.forEach(slot => {
+            const video = slot.item;
+            const rank = slot.rank;
+            const dbId = video.videoDbId;
+            
+            // 1. 取得對照表自訂內容
+            const customConfig = customVideoMapping[dbId] || {};
+            
+            // 2. 判斷連結：如果有自訂連結就用自訂的，沒有的話預設回首頁
+            const targetLink = customConfig.link || 'https://flareu-tw-trans.github.io/';
+
+            // 3. 判斷縮圖：優先使用手動添加的圖片網址。如果沒有，再自動抓 YouTube 縮圖
+            let thumbUrl = '';
+            if (customConfig.customThumb && customConfig.customThumb.trim() !== '') {
+                thumbUrl = customConfig.customThumb;
+            } else {
+                const youtubeId = video.ytId || 'Mu9EwQfmMZU';
+                thumbUrl = `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`;
+            }
+
+            // 4. 生成具有 <a> 標籤跳轉功能的 HTML 卡片
+            const cardHtml = `
+                <div class="podium-card rank-${rank}">
+                    <a href="${targetLink}" target="_blank" rel="noopener noreferrer" class="thumb-wrapper">
+                        <div class="rank-badge">${rank}</div>
+                        <img src="${thumbUrl}" alt="舞台縮圖" onerror="this.src='https://flareu-tw-trans.github.io/images/favicon.png';">
+                    </a>
+                    <div class="video-info">
+                        <h3 class="video-title">${video.title}</h3>
+                        <span class="count-badge">❤️ ${video.clickCount} 次推薦</span>
+                    </div>
+                </div>
+            `;
+            podiumArea.innerHTML += cardHtml;
+        });
+    };
+
+    // 切換分類
+    window.switchCategory = function(category, btnElement) {
+
+        window.currentCategory = category;
+
+        document.querySelectorAll('.category-menu button')
+            .forEach(btn => btn.classList.remove('active'));
+
+        btnElement.classList.add('active');
+
+        const favoritesVisible = document.getElementById('favorites-container').style.display === 'grid';
+
+        if(favoritesVisible){
+            renderFavorites();
+        }else{
+            renderRankings();
+        }
+    };
+
+    // 監聽視窗大小改變，自動調整電腦版/手機版的頒獎台左右順序
+    window.addEventListener('resize', () => {
+        if (window.rawRankingData && Object.keys(window.rawRankingData).length > 0) {
+            renderRankings();
+        }
+    });
+
+    //收藏
+    window.showRanking = function(){
+
+        document.getElementById('ranking-area').style.display='flex';
+
+        document.getElementById('favorites-container').style.display='none';
+
+        document.getElementById('ranking-btn').classList.add('active');
+        document.getElementById('favorite-btn').classList.remove('active');
+    }
+
+    window.showFavorites = function(){
+
+        document.getElementById('ranking-area').style.display='none';
+        document.getElementById('favorites-container').style.display='grid';
+
+        document.getElementById('favorite-btn').classList.add('active');
+        document.getElementById('ranking-btn').classList.remove('active');
+
+        renderFavorites();
+    }
+
+    function getCategory(videoId){
+
+        if(!videoId){
+            return 'group';
+        }
+
+        if(videoId.includes('liyu')){
+            return 'liyu';
+        }
+
+        if(videoId.includes('woojin')){
+            return 'woojin';
+        }
+
+        return 'group';
+    }
+    
+    function renderFavorites(){
+
+        const container = document.getElementById('favorites-container');
+
+        const allFavorites = JSON.parse(
+            localStorage.getItem('favoriteVideos') || '[]'
+        );
+
+        const favorites = allFavorites.filter(item =>
+            getCategory(item.videoDbId) === window.currentCategory
+        );
+
+        if(favorites.length===0){
+            container.innerHTML=
+            `<div class="no-data">
+                尚未收藏任何影片
+             </div>`;
+            return;
+        }
+
+        container.innerHTML='';
+
+        favorites.forEach(video=>{
+
+            const config = customVideoMapping[video.videoDbId] || {};
+
+            const pageUrl =
+                config.link ||
+                'https://flareu-tw-trans.github.io/';
+
+            const thumbUrl =
+                config.customThumb ||
+                `https://img.youtube.com/vi/${video.ytId}/mqdefault.jpg`;
+
+            const card=`
+        <div class="podium-card">
+            <a href="${pageUrl}"
+               target="_blank"
+               class="thumb-wrapper">
+                <img src="${thumbUrl}"
+                     alt="${video.title}"
+                     onerror="this.src='https://flareu-tw-trans.github.io/images/favicon.png';">
+            </a>
+
+            <div class="video-info">
+                <h3 class="video-title">
+                    ${video.title}
+                </h3>
+                
+                <button class="count-badge remove-fav-btn" 
+                        onclick="removeFavorite('${video.videoDbId}')" 
+                        style="cursor: pointer; border: none; transition: background 0.2s;">
+                    ⭐ 已收藏
+                </button>
+            </div>
+        </div>
+        `;
+        container.innerHTML += card;
+        });
+    }
+
+    window.removeFavorite = function(videoDbId) {
+        // 1. 跳出瀏覽器原生詢問視窗
+        const isConfirmed = confirm("確定要取消收藏這部影片嗎？");
+
+        if (!isConfirmed) {
+            return; 
+        }
+
+        // 2. 點選「確定」，讀取並過濾掉該筆資料
+        const allFavorites = JSON.parse(localStorage.getItem('favoriteVideos') || '[]');
+        const updatedFavorites = allFavorites.filter(item => item.videoDbId !== videoDbId);
+
+        // 3. 將更新後的陣列存回 localStorage
+        localStorage.setItem('favoriteVideos', JSON.stringify(updatedFavorites));
+
+        // 4. 重新刷新收藏夾畫面，被刪除的卡片會立刻在眼前消失
+        renderFavorites();
+    }
+</script>
+</body>
+</html>

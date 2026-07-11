@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<link rel="icon" href="https://flareu-tw-trans.github.io/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="https://flareu-tw-trans.github.io/images/favicon.png">
+<link rel="stylesheet" href="../../css/reaction.css">
+  
+<title>KCON JAPAN 2026 X STAGE</title>
+
+<style>
+body { margin: 0; background: #111; color: #fff; font-family: Arial, "Noto Sans TC", sans-serif; text-align: center; }
+html, body { background: #000 !important; height: 100%; width: 100%; margin: 0; }
+
+/* ===================================================
+   ❤️ 推薦按鈕 
+   =================================================== */
+.video-controls-bar { max-width: 800px; margin: 15px auto 5px auto; display: flex; justify-content: space-between; align-items: center; padding: 0 10px; }
+.video-controls-bar h2 { margin: 0; font-size: 1.5rem; text-align: left; }
+.video-controls-bar .like-btn { background: #a63a50 !important; color: #ffffff !important; border: none !important; padding: 8px 16px; border-radius: 20px;
+    cursor: pointer; font-size: 13px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.3); transition: all 0.2s ease; }
+.video-controls-bar .like-btn:hover { background: #8c2f42 !important; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+.video-controls-bar .like-btn.liked { background: #2b2b2b !important; color: #ffeb3b !important; font-weight: 700; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5) !important; transform: none !important; }
+.video-controls-bar .like-btn.liked:hover { background: #1f1f1f !important; }
+.video-controls-bar .like-btn:active { transform: translateY(1px) scale(0.96) !important; }
+
+/* ===================================================
+   ⭐ 收藏按鈕 
+   =================================================== */
+.video-controls-bar .favorite-btn{ background:#d49a00 !important; color:#ffffff !important; border:none !important; padding:8px 16px; border-radius:20px;
+    cursor:pointer; font-size:13px; font-weight:600; box-shadow:0 2px 4px rgba(0,0,0,0.3); transition:all .2s ease; }
+.video-controls-bar .favorite-btn:hover{ background:#b88400 !important; transform:translateY(-1px); box-shadow:0 4px 8px rgba(0,0,0,0.4); }
+.video-controls-bar .favorite-btn.liked{ background:#2b2b2b !important; color:#ffd700 !important; font-weight:700; box-shadow:inset 0 2px 4px rgba(0,0,0,0.5) !important; }
+.video-controls-bar .favorite-btn.liked:hover{ background:#1f1f1f !important; }
+.video-controls-bar .favorite-btn:active{ transform:translateY(1px) scale(0.96) !important; }
+</style>
+</head>
+
+<body>
+<div id="controls">
+    <div class="control-row">
+        <button onclick="toggleBarrageDisplay()" id="barrage-toggle-btn">即時表情：開</button>
+
+        <div class="control-group barrage-control">
+            <span>大小</span>
+            <input type="range" id="barrage-size-slider" min="16" max="60" value="24" oninput="updateBarrageSize(this.value)">
+        </div>
+
+        <div class="control-group barrage-control">
+            <span>範圍</span>
+            <input type="range" id="barrage-height-slider" min="10" max="100" value="40" oninput="updateBarrageHeight(this.value)">
+            <span id="height-val">40%</span>
+        </div>
+
+        <div class="control-group barrage-control">
+            <span>速度</span>
+            <input type="range" id="barrage-speed-slider" min="3" max="10" step="1" value="5" oninput="updateBarrageSpeed(this.value)">
+        </div>
+
+        <div class="control-group">
+            <button class="sub-btn" onclick="changeSubtitleSize(-0.1)">A−</button>
+            <span>字幕</span>
+            <button class="sub-btn" onclick="changeSubtitleSize(0.1)">A＋</button>
+        </div>
+        <button id="home-btn" onclick="window.location.href='/'">首頁</button>
+        <button id="fs-btn">進入全螢幕</button>
+    </div>
+</div>
+
+<div class="video-controls-bar">
+    <h2>KCON JAPAN 2026 X STAGE</h2>
+    <div style="display:flex;gap:10px;">
+        <button id="favorite-btn" class="favorite-btn" onclick="toggleFavorite()">⭐ 收藏</button>
+        <button id="independent-like-btn" class="like-btn" onclick="likeIndependentVideo()">❤️ 推薦</button>
+    </div>
+</div>
+
+<div id="video-wrapper">
+    <div id="player"></div>
+    <div id="subtitle">字幕載入中...</div>
+    <div id="barrage-container"></div>
+
+    <button id="emoji-trigger-btn" onclick="toggleEmojiDrawer(event)">😊</button>
+
+    <div id="emoji-drawer"></div>
+    
+    <button id="exit-fs-btn" title="退出全螢幕" style="display: none; opacity: 0;">
+        <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+</div>
+
+<div class="reaction-section">
+    <p id="reaction-title">覺得這部翻譯影片如何？點個表情吧！</p>
+    <div class="reaction-wall"></div>
+    <br>
+</div>
+
+<script>
+/* 影片ID和SRT文件 */
+const MY_VIDEO_ID = "QvfgbXsWPes"; 
+const MY_SRT_FILE = "20260509_KCONJAPAN2026_X_STAGE.srt";
+
+/* 推薦按鈕資料設定 */
+const INDEPENDENT_VIDEO_DATA = {
+    category: 'group',
+    videoDbId: 'video_20260509_kconjapan_xstage',
+    displayTitle: 'KCON JAPAN 2026 X STAGE',
+    ytId: 'QvfgbXsWPes'
+};
+
+// 網頁載入時強制初始化推薦狀態
+document.addEventListener("DOMContentLoaded", () => {
+    // 稍微延遲確保 Firebase 連線與 DOM 穩定
+    setTimeout(() => {
+        const likeBtn = document.getElementById("independent-like-btn");
+        if (likeBtn) {
+            const hasLiked = localStorage.getItem(`liked_${INDEPENDENT_VIDEO_DATA.videoDbId}`) === 'true';
+            if (hasLiked) {
+                likeBtn.innerHTML = "✨ 已推薦";
+                likeBtn.classList.add('liked');
+            } else {
+                likeBtn.innerHTML = "❤️ 推薦";
+                likeBtn.classList.remove('liked');
+            }
+        }
+
+        // 收藏狀態
+        const favoriteBtn = document.getElementById("favorite-btn");
+
+        const favorites = JSON.parse(
+            localStorage.getItem("favoriteVideos") || "[]"
+        );
+
+        const isFavorite = favorites.some(
+            v => v.videoDbId === INDEPENDENT_VIDEO_DATA.videoDbId
+        );
+
+        if(isFavorite){
+            favoriteBtn.innerHTML = "⭐ 已收藏";
+            favoriteBtn.classList.add("liked");
+        }
+    }, 100);
+});
+
+// 收藏
+function toggleFavorite(){
+
+    const btn = document.getElementById("favorite-btn");
+
+    let favorites = JSON.parse(
+        localStorage.getItem("favoriteVideos") || "[]"
+    );
+
+    const index = favorites.findIndex(
+        v => v.videoDbId === INDEPENDENT_VIDEO_DATA.videoDbId
+    );
+
+    if(index >= 0){
+
+        favorites.splice(index,1);
+
+        btn.innerHTML = "⭐ 收藏";
+        btn.classList.remove("liked");
+
+    }else{
+
+        favorites.push({
+            videoDbId: INDEPENDENT_VIDEO_DATA.videoDbId,
+            title: INDEPENDENT_VIDEO_DATA.displayTitle,
+            ytId: INDEPENDENT_VIDEO_DATA.ytId
+        });
+
+        btn.innerHTML = "⭐ 已收藏";
+        btn.classList.add("liked");
+    }
+
+    localStorage.setItem(
+        "favoriteVideos",
+        JSON.stringify(favorites)
+    );
+}
+
+// 獨立網頁點擊推薦函式
+function likeIndependentVideo() {
+    if (!window.fb_runTransaction || !window.fb_ref || !window.db) {
+        console.error("Firebase 尚未載入完成");
+        return;
+    }
+
+    const { category, videoDbId, displayTitle } = INDEPENDENT_VIDEO_DATA;
+    const likeBtn = document.getElementById("independent-like-btn");
+    
+    const hasLiked = localStorage.getItem(`liked_${videoDbId}`) === 'true';
+    const changeValue = hasLiked ? -1 : 1;
+
+    const targetRef = window.fb_ref(window.db, `stage_rankings/${category}/${videoDbId}`);
+
+    window.fb_runTransaction(targetRef, (currentData) => {
+        if (currentData) {
+            const newCount = (currentData.clickCount || 0) + changeValue;
+            currentData.clickCount = newCount < 0 ? 0 : newCount;
+            currentData.title = displayTitle;
+        } else {
+            currentData = {
+                title: displayTitle,
+                clickCount: changeValue < 0 ? 0 : 1
+            };
+        }
+        return currentData;
+    }).then(() => {
+        if (hasLiked) {
+            localStorage.setItem(`liked_${videoDbId}`, 'false');
+            if (likeBtn) {
+                likeBtn.innerHTML = "❤️ 推薦";
+                likeBtn.classList.remove('liked');
+            }
+        } else {
+            localStorage.setItem(`liked_${videoDbId}`, 'true');
+            if (likeBtn) {
+                likeBtn.innerHTML = "✨ 已推薦";
+                likeBtn.classList.add('liked');
+            }
+        }
+    }).catch(error => {
+        console.error("推薦操作失敗:", error);
+    });
+}
+
+/* ===== 字幕大小設定 ===== */
+function changeSubtitleSize(delta) {
+        if (typeof coreChangeSubtitleSize === "function") coreChangeSubtitleSize(delta);
+}
+</script>
+    
+<script type="module">
+  // 1. 載入 Firebase 核心功能與 Analytics
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+  // 加上這行來載入分析模組
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+    
+  // 2. Firebase 設定
+  const firebaseConfig = { apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", authDomain: "flareu-tw-translation.firebaseapp.com", databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "flareu-tw-translation", storageBucket: "flareu-tw-translation.firebasestorage.app", messagingSenderId: "753531558153", appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" };
+
+  // 3. 啟動連線
+  const app = initializeApp(firebaseConfig);
+  
+  // 啟動 Analytics
+  const analytics = getAnalytics(app);
+
+  // 借給外部 JS 使用
+  window.db = getDatabase(app);
+  window.fb_ref = ref;            
+  window.fb_onValue = onValue;    
+  window.fb_runTransaction = runTransaction; 
+</script>
+
+<script src="../../js/core-player.js"></script>
+<script src="../../js/reaction-core.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
