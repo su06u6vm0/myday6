@@ -484,11 +484,11 @@
         
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
           
-          <h3 style="text-align: center; margin: 0; color: #e53935; font-size: 20px; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(229,57,53,0.2); font-weight: 700;">🎵 Welcome to The Show</h3>
+          <h3 style="text-align: center; margin: 0; color: #e53935; font-size: clamp(17px, 3vw, 20px); letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(229,57,53,0.2); font-weight: 700;">🎵 Welcome to The Show</h3>
           
           <div style="display: flex; gap: 8px;">
-            <button onclick="adjustFontSize('hyper-lyrics', -2)" style="padding: 6px 14px; border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: 15px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A -</button>
-            <button onclick="adjustFontSize('hyper-lyrics', 2)" style="padding: 6px 14px; border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: 15px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A +</button>
+            <button onclick="adjustFontSize('hyper-lyrics', -2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A -</button>
+            <button onclick="adjustFontSize('hyper-lyrics', 2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A +</button>
           </div>
         </div>
         <!-- 內層設定 id 為 hyper-lyrics，設定平滑滾動與 max-height -->
