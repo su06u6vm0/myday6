@@ -56,7 +56,7 @@
       display: flex; justify-content: center; transition: background-color 0.3s ease, color 0.3s ease; 
     }
 
-    .content-wrapper { max-width: 800px; width: 100%; background: var(--bg-content); min-height: 100vh; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding-bottom: 20px; transition: all 0.3s ease; }
+    .content-wrapper {max-width: 800px; width: 100%; background: var(--bg-content); min-height: 100vh; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding-bottom: 20px; transition: all 0.3s ease; }
 
     /* ==================== 
        2. 版面與畫報排版
@@ -321,6 +321,134 @@
       word-wrap: break-word;
       max-width: 100%;
     }
+    
+    /*淺色模式（預設）*/
+    #way2u-lyrics b, #hyper-lyrics b{
+        color: #008071;
+        font-weight: 700;
+        transition: color 0.3s;
+    }
+    
+    #way2u-lyrics p.current-lyric, #hyper-lyrics p.current-lyric{
+        background: rgba(0, 128, 113, 0.15);
+        border-radius: 8px;
+        transform: scale(1.05);
+        font-weight: bold;
+        transition: all 0.3s ease;
+        color: #000000;
+    }
+    
+    #way2u-lyrics, #hyper-lyrics p{
+        padding: 6px 10px;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        opacity: 0.5;
+    }
+    
+    #way2u-lyrics p.current-lyric b, #hyper-lyrics p.current-lyric b{
+        color: #008071;
+    }
+    
+    /*深色模式*/
+    [data-theme="dark"] #way2u-lyrics b,
+    [data-theme="dark"] #hyper-lyrics b {
+        color: #80cbc4;
+        font-weight:700;
+        transition:color 0.3s;
+    }
+    
+    [data-theme="dark"] #way2u-lyrics p.current-lyric,
+    [data-theme="dark"] #hyper-lyrics p.current-lyric {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius:8px;
+        transform:scale(1.05);
+        font-weight:bold;
+        transition: all 0.3s ease;
+        color:#e5dbdb;
+    }
+    
+    [data-theme="dark"] #way2u-lyrics p, 
+    [data-theme="dark"] #hyper-lyrics p {
+        padding:6px 10px;
+        margin:4px 0;
+        transition: all 0.3s ease;
+        opacity: 0.5;
+        color:#e5dbdb;
+    }
+    
+    [data-theme="dark"] #way2u-lyrics p.current-lyric b, 
+    [data-theme="dark"] #hyper-lyrics p.current-lyric b {
+        color:#80cbc4;
+    }
+
+    /* 淺色（預設） */
+    #way2u-container, #hyper-container{
+          background: linear-gradient(135deg, #edf7f6 0%, #d1e8e5 100%); 
+          color: #2c4a44; 
+          padding: 25px; 
+          margin-top: 20px;
+          border-radius: 16px;
+          border: 1px solid #b2dbd5;
+          font-family: sans-serif;
+          line-height: 1.8;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .lyrics-title{
+        text-align: center; 
+        margin: 0; 
+        color: #235249; 
+        font-size: clamp(17px, 3vw, 20px); 
+        font-weight: 700; 
+        letter-spacing: 0.5px;
+    }
+    .font-btn{
+        padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); 
+        border: 1px solid #99c2bc; 
+        background: #ffffff; 
+        color: #3b665e; 
+        border-radius:20px; 
+        cursor: pointer; 
+        font-size: clamp(13px, 2.5vw, 15px); 
+        font-weight: bold; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+        transition: all 0.2s;
+    }
+
+    /* 深色 */
+    [data-theme="dark"] #way2u-container,
+    [data-theme="dark"] #hyper-container{
+          background: linear-gradient(135deg, #1a1515 0%, #121010 100%);
+          color: #e5dbdb; 
+          padding: 25px;
+           margin-top: 20px;
+          border-radius: 16px;
+          border: 1px solid #3d403d;
+          font-family: sans-serif;
+          line-height: 1.8;
+          box-shadow: 0 4px 25px rgba(229, 57, 53, 0.08);
+    }
+    [data-theme="dark"] .lyrics-title{
+        text-align: center; 
+        margin: 0; 
+        color: #a7c4a7; 
+        font-size: clamp(17px, 3vw, 20px); 
+        letter-spacing: 1.5px; 
+        text-shadow: 0 0 10px rgba(149,213,178,0.2); 
+        font-weight: 700;
+    }
+    [data-theme="dark"] .font-btn{
+        padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px);
+        border: 1px solid #4a5a50; 
+        background: #242624; 
+        color: #b7d9c2;
+        border-radius:20px; 
+        cursor: pointer;
+        font-size: clamp(13px, 2.5vw, 15px);
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.2s;
+    }
+    
   </style>
 </head>
 <body>
@@ -373,26 +501,26 @@
       </div>
       
       <!-- WAY 2 U 應援歌詞 -->
-      <div class="lyrics-container lyrics-cute" id="way2u-container" style="background: linear-gradient(135deg, #edf7f6 0%, #d1e8e5 100%); color: #2c4a44; padding: 25px; margin-top: 20px; border-radius: 16px; border: 1px solid #b2dbd5; font-family: sans-serif; line-height: 1.8; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+      <div class="lyrics-container" id="way2u-container">
         
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
           
-          <h3 style="text-align: center; margin: 0; color: #235249; font-size: clamp(17px, 3vw, 20px); font-weight: 700; letter-spacing: 0.5px;">🎵 Welcome to The Show </h3>
+          <h3 class="lyrics-title">🎵 Welcome to The Show </h3>
           
           <div style="display: flex; gap: 8px;">
-            <button onclick="adjustFontSize('way2u-lyrics', -2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #99c2bc; background: #ffffff; color: #3b665e; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s;">A -</button>
-            <button onclick="adjustFontSize('way2u-lyrics', 2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #99c2bc; background: #ffffff; color: #3b665e; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: all 0.2s;">A +</button>
+            <button class="font-btn" onclick="adjustFontSize('way2u-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('way2u-lyrics', 2)">A +</button>
           </div>
         </div>
   
         <!-- 內層設定 id，並將粗體字 <b> 的顏色統一指定為高級藍綠色 (#008071) -->
         <div id="way2u-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
-          <style>
+          <!--<style>
             #way2u-lyrics b { color: #008071; font-weight: 700; transition: color 0.3s; }
             #way2u-lyrics p.current-lyric { background: rgba(0, 128, 113, 0.15); border-radius: 8px; transform: scale(1.05); font-weight: bold; transition: all 0.3s ease; color: #000000; }
             #way2u-lyrics p { padding: 6px 10px; margin: 4px 0; transition: all 0.3s ease; opacity: 0.5; }
             #way2u-lyrics p.current-lyric b { color: #008071; }
-          </style>
+          </style>-->
           <p data-start="0.0" data-end="9.0">♪ ༘⋆</p>
 		  <p data-start="14.0" data-end="18.3"><b>데! 이! 식! 스! 웰! 컴! 투더! 쇼! (得!意!係!似! Wele! come! to the! show!)</b></p>
 		  <p data-start="19.2" data-end="21.6">이젠 혼자가 아닐 무대 (一間 轟價尬 阿尼 木得)</p>
@@ -480,25 +608,25 @@
       </div>
       
       <!-- Hyper 應援歌詞 -->
-      <div class="lyrics-container lyrics-cool" id="hyper-container" style="background: linear-gradient(135deg, #1a1515 0%, #121010 100%); color: #e5dbdb; padding: 25px; margin-top: 20px; border-radius: 12px; border: 1px solid #4a282b; font-family: sans-serif; line-height: 1.8; box-shadow: 0 4px 25px rgba(229, 57, 53, 0.08);">
+      <div class="lyrics-container" id="hyper-container">
         
         <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
           
-          <h3 style="text-align: center; margin: 0; color: #e53935; font-size: clamp(17px, 3vw, 20px); letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(229,57,53,0.2); font-weight: 700;">🎵 Welcome to The Show</h3>
+          <h3 class="lyrics-title">🎵 Welcome to The Show</h3>
           
           <div style="display: flex; gap: 8px;">
-            <button onclick="adjustFontSize('hyper-lyrics', -2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A -</button>
-            <button onclick="adjustFontSize('hyper-lyrics', 2)" style="padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); border: 1px solid #5c3538; background: #261c1d; color: #e5999d; border-radius:20px; cursor: pointer; font-size: clamp(13px, 2.5vw, 15px); font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s;">A +</button>
+            <button class="font-btn" onclick="adjustFontSize('hyper-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('hyper-lyrics', 2)">A +</button>
           </div>
         </div>
         <!-- 內層設定 id 為 hyper-lyrics，設定平滑滾動與 max-height -->
 		<div id="hyper-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
-		  <style>
+		  <!--<style>
 			#hyper-lyrics b { color: #ff4d5a; font-weight: 700; transition: color 0.3s; }
 			#hyper-lyrics p.current-lyric { background: rgba(255, 255, 255, 0.15); border-radius: 8px; transform: scale(1.05); font-weight: bold; transition: all 0.3s ease; }
 			#hyper-lyrics p { padding: 6px 10px; margin: 4px 0; transition: all 0.3s ease; opacity: 0.5; }
 			#hyper-lyrics p.current-lyric b { color: #ff4d5a; }
-		  </style>
+		  </style>-->
 
           <p data-start="0.0" data-end="9.0">♪ ༘⋆</p>
 		  <p data-start="14.0" data-end="18.3"><b>데! 이! 식! 스! 웰! 컴! 투더! 쇼! (得!意!係!似! Wele! come! to the! show!)</b></p>
