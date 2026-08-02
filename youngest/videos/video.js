@@ -4,8 +4,8 @@ const videos = [
 
 {
 title:"이걸 맞힌다고? Young K(영케이)가 플리상 보고 소름돋은 이유 🔮 | 스포티파이 플리상",
-category:"Live 演唱",
-date:"訪談",
+category:"訪談",
+date:"2026.08.02",
 videoId:"2g8nJniWJhY",
 description:"Spotify"
 },
@@ -13,8 +13,8 @@ description:"Spotify"
 
 {
 title:"같이 시계 게임하고 싶은 남자 1위 영케이(YOUNG K of Day6) 'Shut The Door' #뮤직뱅크 | KBS 260731 방송",
-category:"Live 演唱",
-date:"音樂節目",
+category:"音樂節目",
+date:"2026.08.02",
 videoId:"bazmtRyVIWY",
 description:"Music Bank"
 },
