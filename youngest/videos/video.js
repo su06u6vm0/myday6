@@ -3,11 +3,29 @@ const videos = [
 
 
 {
+title:"이걸 맞힌다고? Young K(영케이)가 플리상 보고 소름돋은 이유 🔮 | 스포티파이 플리상",
+category:"Live 演唱",
+date:"訪談",
+videoId:"2g8nJniWJhY",
+description:"Spotify"
+},
+
+
+{
+title:"같이 시계 게임하고 싶은 남자 1위 영케이(YOUNG K of Day6) 'Shut The Door' #뮤직뱅크 | KBS 260731 방송",
+category:"Live 演唱",
+date:"音樂節目",
+videoId:"bazmtRyVIWY",
+description:"Music Bank"
+},
+
+
+{
 title:"Young K(영케이) 'Shut The Door' Spotify Live | 스포티파이 K-Pop ON! LINE",
 category:"Live 演唱",
 date:"2026.08.02",
 videoId:"Ku7j2Y7BI54",
-description:"YOUNGEST comeback stage"
+description:"Spotify Live"
 },
 
 
@@ -52,7 +70,7 @@ title:"(ENG)[MusicBank Interview Cam] 영케이 (Young K Interview) l @MusicBank
 category:"音樂節目",
 date:"2026.08.01",
 videoId:"mRI34tVN7co",
-description:"MusicBank"
+description:"Music Bank"
 },
 
 
