@@ -456,23 +456,26 @@
   <div class="content-wrapper">
 
     <header class="header">
-      <h1>《Shut The Door》歌詞應援</h1>
-
       <div class="controls-wrapper">
-        <a href="../../index.html" class="home-btn">🏠 首頁</a> <div class="theme-toggle-group">
+        <a href="../../index.html" class="home-btn">🏠 首頁</a> 
+		<div class="theme-toggle-group">
           <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
           <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
         </div>
+		<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
       </div>
       <div class="controls-wrapper" style="margin-top: 4px; margin-bottom: 8px;">
-        <!--<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>-->
-        <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
+        <!--<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>
+        <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>-->
       </div>
+
+      <h1>《Shut The Door》歌詞應援</h1>
 
       <div class="tabs-container">
         <button class="tab-btn" onclick="openTab('tab-video1', this)">Singalong</button>
         <button class="tab-btn" onclick="openTab('tab-video2', this)">M/V</button>
       </div>
+	  
     </header>
 
     <!-- WAY 2 U 分頁 -->
@@ -940,7 +943,7 @@
     // 歌詞字體大小調整與說明
     //======================================================
     function showInstruction() {
-      alert("💡 應援小撇步：\n\n影片內嵌入的字幕是專門給已經熟練的人作「應援成果測驗」使用的哦！\n\n如果您對應援口號還不太熟練，可以先觀看影片下方的「動態歌詞字幕」來做練習 🎵 \n\n如果頻繁切換影片可能會導致動態歌詞字幕無法顯示，如有出現該狀況再麻煩重新整理！");
+      alert("💡如果頻繁切換影片可能會導致動態歌詞字幕無法顯示，如有出現該狀況再麻煩重新整理！\n\n");
     }
 
     //歌詞字體大小調整
