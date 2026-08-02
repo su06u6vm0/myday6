@@ -604,13 +604,13 @@ target="_blank">
 <div class="info">
 
 
-<h2>${video.title}</h2>
+<h3>${video.title}</h3>
 
-
+<!--
 <p class="category">
-${video.category}
-</p>
-
+ ${video.category}
+</p> 
+-->
 
 <p>
 ${video.date}
