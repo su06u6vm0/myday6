@@ -64,9 +64,14 @@
     .header { background-color: var(--bg-content); padding: 20px 20px 0 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
     .header h1 { font-size: 1.3rem; margin: 0; font-weight: 600; color: var(--text-main); line-height: 1.4; }
 
-    .controls-wrapper { display: flex; gap: 12px; align-items: center; margin-top: 10px; margin-bottom: 16px; }
+    .controls-wrapper { display: flex; gap: 12px; align-items: center; margin-top: 10px; margin-bottom: 16px; 
+	                    flex-wrap: wrap; /* 不夠寬時換下一行 */}
     .home-btn { background-color: var(--home-btn-bg); color: var(--text-main); text-decoration: none; padding: 6px 16px; border-radius: 16px; font-size: 0.9rem; font-weight: bold; }
-    .theme-toggle-group { display: inline-flex; background-color: var(--theme-btn-bg); border-radius: 20px; padding: 4px; }
+    .theme-btn,
+    .home-btn {
+		white-space: nowrap; /* 防止文字換行 */
+     }
+	.theme-toggle-group { display: inline-flex; background-color: var(--theme-btn-bg); border-radius: 20px; padding: 4px; }
     .theme-btn { background: none; border: none; padding: 6px 16px; border-radius: 16px; font-size: 0.9rem; color: var(--theme-btn-text); cursor: pointer; font-weight: bold; }
     .theme-btn.active { background-color: var(--theme-btn-active); color: var(--text-main); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
@@ -457,12 +462,12 @@
 
     <header class="header">
       <div class="controls-wrapper">
-        <a href="../../index.html" class="home-btn">🏠首頁</a> 
+        <a href="../../index.html" class="home-btn">🏠 首頁</a> 
 		<div class="theme-toggle-group">
-          <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️淺色</button>
-          <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙深色</button>
+          <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+          <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
         </div>
-		<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️說明</button>
+		<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
       </div>
       <div class="controls-wrapper" style="margin-top: 4px; margin-bottom: 8px;">
         <!--<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>
