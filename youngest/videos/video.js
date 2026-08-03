@@ -314,6 +314,126 @@ description:"回歸直播"
 },
 
 {
+title:"Young K - Ordinary Days (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"UI5nw2tVRWs",
+description:"DAY6"
+},
+
+{
+title:"Young K - Gypsophila (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"e0GkaG5uQzk",
+description:"DAY6"
+},
+
+{
+title:"Young K - Heading Home (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"EmVpJcbC55c",
+description:"DAY6"
+},
+
+{
+title:"Young K - Goodbye, Love (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"mat_XO06M4w",
+description:"DAY6"
+},
+
+{
+title:"Young K - whatever (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"m6jzNA1-PVE",
+description:"DAY6"
+},
+
+{
+title:"Young K - Drivin′ into Hell (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"fKsdcHe2sWw",
+description:"DAY6"
+},
+
+{
+title:"Young K - A Hundred Whys for Goodbye (with JINJOO of DNCE) (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"9rWvNCKpubI",
+description:"DAY6"
+},
+
+{
+title:"Young K - million reasons (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"sWUwfjSU1o0",
+description:"DAY6"
+},
+
+{
+title:"Young K - Yonge St. (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"TV0ZSPJzE4Q",
+description:"DAY6"
+},
+
+{
+title:"Young K - SPIKE (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"BkvwNZWXCg8",
+description:"DAY6"
+},
+
+{
+title:"Young K - Anthem (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"t6cdz9m9wfI",
+description:"DAY6"
+},
+
+{
+title:"Young K - Hey Honey (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"ICllfYfKFxY",
+description:"DAY6"
+},
+
+{
+title:"Young K - F world (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"onJkeUe5Svs",
+description:"DAY6"
+},
+
+{
+title:"Young K - Shut The Door (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"SNyvnJ5-Vz8",
+description:"DAY6"
+},
+
+{
+title:"Young K - Marionette (Official Audio)",
+category:"專輯相關",
+date:"2026.07.27",
+videoId:"2ONJ1CJLxMw",
+description:"DAY6"
+},
+
+{
 title:"Young K \"Shut The Door\" M/V",
 category:"M/V",
 date:"2026.07.27",
