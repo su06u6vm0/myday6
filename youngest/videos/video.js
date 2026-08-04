@@ -2,6 +2,30 @@
 const videos = [
 
 {
+title:"[한해의 키스 더 라디오] 놀라운 초대석 with. 영케이 | KBS 260804 방송",
+category:"電台/廣播",
+date:"2026.08.04",
+videoId:"cH4jAEjaZyo",
+description:"韓海的 Kiss the Radio"
+},
+
+{
+title:"[🔊8D Bank] Young K (DAY6) (영케이) - Shut The Door | KBS WORLD TV 260731",
+category:"音樂節目",
+date:"2026.08.04",
+videoId:"U-oI4y2wyEA",
+description:"Music Bank"
+},
+
+{
+title:"문단속은 하고 폰단속은 안한 사건 | EP. 151 영케이 | 살롱드립",
+category:"訪談",
+date:"2026.08.04",
+videoId:"SXSYm1g2C24",
+description:"Salon Drip"
+},
+
+{
 title:"Young K \"Shut The Door\" LIVE CLIP",
 category:"Live 演唱",
 date:"2026.08.03",
@@ -15,6 +39,22 @@ category:"音樂節目",
 date:"2026.08.03",
 videoId:"lGKpwoCYxes",
 description:"Show! Music Core"
+},
+
+{
+title:"(Interview) Interview with Young K (DAY6) ヨンケイ 영케이 with PENGSOO [Music Bank] | KBS WORLD TV 260731",
+category:"音樂節目",
+date:"2026.08.03",
+videoId:"XMJ6uB5tPEU",
+description:"Music Bank"
+},
+
+{
+title:"(Interview) MC Bad Challenge [Music Bank] | KBS WORLD TV 260731",
+category:"音樂節目",
+date:"2026.08.03",
+videoId:"JsJ6WRboAU4",
+description:"Music Bank"
 },
 
 {
