@@ -1,9 +1,73 @@
 // 1. 影片資料庫
 const videos = [
 
+//{
+//title:"DinDin's Music High",
+//category:"電台/廣播",
+//date:"2026.08.05",
+//videoId:"",
+//description:"DinDin's Music High"
+//},
+
+{
+title:"Young K \"Marionette\" LIVE CLIP",
+category:"Live 演唱",
+date:"2026.08.05",
+videoId:"dSSyyO5pBtk",
+description:"DAY6"
+},
+
+{
+title:"15년 우정도 버티기 힘든 극한 알바 | 무한리필 알바 | 워크돌ㅣ프로미스나인 지원, 데이식스 영케이",
+category:"訪談",
+date:"2026.08.05",
+videoId:"fGJi6NSm3jk",
+description:"Workdol"
+},
+
+{
+title:"[ENG] 영케이 왔다 샤따 내려~! | 유인라디오 S3 EP.16",
+category:"電台/廣播",
+date:"2026.08.05",
+videoId:"KS33XscazTk",
+description:"You In Radio"
+},
+
+{
+title:"Young K - Shut The Door | Show! MusicCore | aired on MBC260801 #YoungK",
+category:"音樂節目",
+date:"2026.08.05",
+videoId:"BOIQ_cr9zOo",
+description:"Show! MusicCore"
+},
+
+{
+title:"Queen's Day w/ 영케이 Young K🚪🍀 [가비의 슈퍼라디오] | KBS 260805 (수) 방송",
+category:"電台/廣播",
+date:"2026.08.05",
+videoId:"CeQH9at4Fxg",
+description:"Gabee's Super Radio"
+},
+
+{
+title:"[한해의 키스 더 라디오] 놀라운 초대석 with. 영케이 (Young K) | KBS 260804방송",
+category:"電台/廣播",
+date:"2026.08.05",
+videoId:"NhhZ47g3jRk",
+description:"韓海的 Kiss the Radio"
+},
+
+{
+title:"쿨룩 LIVE ▷ 영케이 (Young K) ‘F World’ / [한해의 키스 더 라디오] | KBS 260804 방송",
+category:"Live 演唱",
+date:"2026.08.05",
+videoId:"Cr8DLIR7_g0",
+description:"韓海的 Kiss the Radio"
+},
+
 {
 title:"[한해의 키스 더 라디오] 놀라운 초대석 with. 영케이 | KBS 260804 방송",
-category:"電台/廣播",
+category:"直播",
 date:"2026.08.04",
 videoId:"cH4jAEjaZyo",
 description:"韓海的 Kiss the Radio"
@@ -310,7 +374,7 @@ title:"DAY6(데이식스) 영케이 님에게 동국대 말고 다른 학교도 
 category:"訪談",
 date:"2026.07.28",
 videoId:"dPreReo3jOA",
-description:"미미미누"
+description:"Mimiminu"
 },
 
 {
@@ -682,6 +746,14 @@ description:"Track 1 歌詞預告"
 },
 
 {
+title:"데이식스(DAY6) 영케이 님 초대석 (2026.07.17)",
+category:"直播",
+date:"2026.07.17",
+videoId:"SpJItanYJKw",
+description:"Mimiminu YouTube Live"
+},
+
+{
 title:"같은 밴쿠버, 다른 느낌.. l [그르르갉 : 진대 토크] EP8. DAY6 영케이",
 category:"訪談",
 date:"2026.07.17",
@@ -706,6 +778,15 @@ const paginationContainer = document.getElementById("pagination-container");
 let currentPage = 1;          // 當前頁碼
 const itemsPerPage = 12;      // 💡 一頁要顯示幾張卡片（你可以自由修改，建議 6 或 9）
 let currentFilteredVideos = [...videos]; // 記錄目前被篩選出來的影片清單，預設為全部影片
+
+// 重新整理頁面時，回到最上方
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+});
 
 // 3. 渲染卡片 (加上 Slice 分頁切割)
 function displayVideos(list) {
@@ -819,6 +900,13 @@ function renderPagination(totalItems) {
 function updateView() {
   displayVideos(currentFilteredVideos);
   renderPagination(currentFilteredVideos.length);
+  
+  // 按下一頁時，畫面捲到影片列表開頭
+  document.getElementById("section-filter").scrollIntoView({
+  behavior: "smooth",
+  block: "start"
+  });
+  
 }
 
 // 6. 整合分類篩選功能
