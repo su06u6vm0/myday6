@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>YK Archive | YOUNGEST</title>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			background:
+			radial-gradient(circle at top left, #E5F3FA, transparent 35%),
+			linear-gradient(135deg, #F8FBFD, #FFFFFF); 		/* 由左上往右下的方向漸層 */
+			color: #34495E;
+			font-family: 'Inter', sans-serif;
+			display: flex;
+			justify-content: center;	/* 水平置中 */
+			align-items: center;		/* 垂直置中 */
+			padding: 40px 24px;			/* 上下 左右 */
+		}
+
+		/* 主內容 */
+		.container {
+			width: 100%;
+			max-width: 480px;
+			text-align: center;
+		}
+
+		/* Logo */
+		.logo {
+			font-size: 13px;
+			letter-spacing: 5px;
+			color: #7FB8D2;
+			margin-bottom: 35px;
+		}
+
+		/* 標題 */
+		h1 {
+			font-family: 'Playfair Display', serif;
+			font-size: clamp(42px, 10vw, 64px);
+			font-weight: 600;
+			margin: 0;
+			color: #34495E;
+		}
+
+		.subtitle {
+			margin-top: 15px;
+			font-size: 16px;
+			letter-spacing: 1px;
+			color: #6B7C8C;
+		}
+
+		.date {
+			margin-top: 22px;
+			font-size: 13px;
+			letter-spacing: 3px;
+			color: #97CADD;
+		}
+
+		/* 按鈕區 */
+		.buttons {
+			margin-top: 45px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+		}
+
+		/* 卡片按鈕 */
+		.card {
+			width: 100%;
+			max-width: 360px;
+			background: rgba(255,255,255,0.75);
+			border: 1px solid #DCEFF7;
+			border-radius: 18px;
+			padding: 16px 20px;
+			text-decoration: none;
+			color: #34495E;
+			transition: all 0.35s ease;
+			backdrop-filter: blur(10px);
+		}
+
+		.card:hover {
+			transform: translateY(-4px);
+			background: #97CADD;
+			color: white;
+			box-shadow:
+			0 12px 25px rgba(151,202,221,0.35);
+		}
+
+		/* icon */
+		.icon {
+			font-size: 24px;
+			margin-bottom: 6px;
+		}
+
+		.title {
+			font-size: 17px;
+			font-weight: 600;
+		}
+
+		.description {
+			margin-top: 5px;
+			font-size: 12px;
+			opacity: 0.65;
+		}
+
+		/* footer */
+		footer {
+			margin-top: 55px;
+			font-size: 12px;
+			color: #9AAAB5;
+			letter-spacing: 1px;
+		}
+
+		/* 電腦版 */
+		@media (min-width:768px){
+			.container {
+				max-width: 650px;
+			}
+			.buttons {
+				flex-direction: row;
+				justify-content: center;
+				gap: 18px;
+			}
+			.card {
+				width: 180px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="logo">YK ARCHIVE</div>
+
+		<h1>YOUNGEST</h1>
+
+		<div class="subtitle">Young K 2nd Full Album Collection</div>
+
+		<div class="date">2026.07.27</div>
+
+		<div class="buttons">
+			<a class="card" href="shutthedoor/index.html">
+				<div class="icon">🎵</div>
+				<div class="title">Lyrics</div>
+				<div class="description">歌詞應援網頁</div>
+			</a>
+			<a class="card" href="videos/index.html">
+				<div class="icon">🎬</div>
+				<div class="title">Video Archive</div>
+				<div class="description">回歸影片整理</div>
+			</a>
+			<a class="card" href="https://youngk.lnk.to/YOUNGEST">
+				<div class="icon">🎧</div>
+				<div class="title">Listen</div>
+				<div class="description">Official Streaming</div>
+			</a>
+		</div>
+
+		<footer>Made with love for Young K</footer>
+	</div>
+</body>
+</html>
