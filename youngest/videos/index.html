@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="video.css">
 </head>
 
-
 <body>
 
 	<header>
@@ -19,50 +18,47 @@
 	包含 MV、預告、舞台演出、直播、綜藝節目、訪談及幕後花絮。</p>
 	</header>
 
+	<section class="filter" id="section-filter">
+		<button onclick="filterVideos('All')">
+			全部
+		</button>
 
-	<section class="filter">
+		<button onclick="filterVideos('M/V')">
+			M/V
+		</button>
 
-	<button onclick="filterVideos('All')">
-		全部
-	</button>
+		<button onclick="filterVideos('音樂節目')">
+			音樂節目
+		</button>
 
-	<button onclick="filterVideos('M/V')">
-		M/V
-	</button>
+		<button onclick="filterVideos('Live 演唱')">
+			Live 演唱
+		</button>
 
-	<button onclick="filterVideos('音樂節目')">
-		音樂節目
-	</button>
+		<button onclick="filterVideos('綜藝節目')">
+			綜藝節目
+		</button>
 
-	<button onclick="filterVideos('Live 演唱')">
-		Live 演唱
-	</button>
+		<button onclick="filterVideos('電台/廣播')">
+			電台/廣播
+		</button>
 
-	<button onclick="filterVideos('綜藝節目')">
-		綜藝節目
-	</button>
+		<button onclick="filterVideos('訪談')">
+			訪談/其他
+		</button>
 
-	<button onclick="filterVideos('電台/廣播')">
-		電台/廣播
-	</button>
+		<button onclick="filterVideos('直播')">
+			直播
+		</button>
 
-	<button onclick="filterVideos('訪談')">
-		訪談
-	</button>
+		<button onclick="filterVideos('幕後花絮')">
+			幕後花絮
+		</button>
 
-	<button onclick="filterVideos('直播')">
-		直播
-	</button>
-
-	<button onclick="filterVideos('幕後花絮')">
-		幕後花絮
-	</button>
-
-	<button onclick="filterVideos('專輯相關')">
-		專輯相關
-	</button>
+		<button onclick="filterVideos('專輯相關')">
+			專輯相關
+		</button>
 	</section>
-
 
 	<main id="video-container">
 
