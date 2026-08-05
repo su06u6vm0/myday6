@@ -71,23 +71,30 @@ a {
   margin: 40px 0;
 }
 
-/* 分頁按鈕基礎樣式 */
+/* 分頁按鈕基礎樣式*/
 .pagination button {
   padding: 8px 14px;
   border: 1px solid #ddd;
   background-color: #fff;
-  color: #333;
-  border-radius: 6px;
+  color: #5B6574;
+  border-radius: 18px;
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s ease-in-out;
-}
+} 
 
-/* 滑鼠懸停（Hover） */
+/* 滑鼠懸停(深色)
 .pagination button:hover:not(:disabled) {
   background-color: #333;
   color: #fff;
   border-color: #333;
+}*/
+/* 分頁按鈕基礎樣式(淺色) */
+.pagination button:hover:not(:disabled) {
+    background: #eef6fb;
+    border-color: #9cc9ea;
+    color: #2b6cb0;
+    transform: translateY(-2px);
 }
 
 /* 當前被選中的頁碼 */
