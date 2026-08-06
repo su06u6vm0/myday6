@@ -1,5 +1,14 @@
 // 1. 影片資料庫
 const videos = [
+
+//{
+//title:"DinDin's Music High",
+//category:"電台/廣播",
+//date:"2026.08.05",
+//videoId:"",
+//description:"DinDin's Music High"
+//},
+
 {
 title:"[DAY6 VLOG] Kang Young Hyun VLOG | ＜YOUNGEST＞ Comeback",
 category:"幕後花絮",
