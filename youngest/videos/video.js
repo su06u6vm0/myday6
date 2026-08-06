@@ -1,6 +1,5 @@
 // 1. 影片資料庫
 const videos = [
-
 {
 title:"[DAY6 VLOG] Kang Young Hyun VLOG | ＜YOUNGEST＞ Comeback",
 category:"幕後花絮",
