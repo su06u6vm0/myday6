@@ -1,20 +1,20 @@
 // 1. 影片資料庫
 const videos = [
 
-//{
-//title:"DinDin's Music High",
-//category:"電台/廣播",
-//date:"2026.08.05",
-//videoId:"",
-//description:"DinDin's Music High"
-//},
-
 {
 title:"[DAY6 VLOG] Kang Young Hyun VLOG | ＜YOUNGEST＞ Comeback",
 category:"幕後花絮",
 date:"2026.08.06",
 videoId:"F8vjj-tlnnA",
 description:"DAY6 VLOG"
+},
+
+{
+title:"[FULL] 뮤직하이에서 결성된 캐나다 향우회🍁 첫 솔로 정규 앨범으로 컴백한 영케이🎤 | 딘딘의 뮤직하이 | 260805",
+category:"電台/廣播",
+date:"2026.08.05",
+videoId:"DXzN4vmr3jQ",
+description:"DinDin's Music High"
 },
 
 {
