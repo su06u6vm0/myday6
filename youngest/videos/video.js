@@ -10,6 +10,14 @@ const videos = [
 //},
 
 {
+title:"[DAY6 VLOG] Kang Young Hyun VLOG | ＜YOUNGEST＞ Comeback",
+category:"幕後花絮",
+date:"2026.08.06",
+videoId:"F8vjj-tlnnA",
+description:"DAY6 VLOG"
+},
+
+{
 title:"Young K \"Marionette\" LIVE CLIP",
 category:"Live 演唱",
 date:"2026.08.05",
@@ -25,6 +33,16 @@ videoId:"fGJi6NSm3jk",
 description:"Workdol"
 },
 
+
+{
+title:"Queen's Day with 영케이 full ver. / [가비의 슈퍼라디오] I KBS 260805 방송",
+category:"電台/廣播",
+date:"2026.08.05",
+videoId:"YjgGV7kgbJA",
+description:"Gabee's Super Radio"
+},
+
+//
 {
 title:"[ENG] 영케이 왔다 샤따 내려~! | 유인라디오 S3 EP.16",
 category:"電台/廣播",
@@ -43,7 +61,7 @@ description:"Show! MusicCore"
 
 {
 title:"Queen's Day w/ 영케이 Young K🚪🍀 [가비의 슈퍼라디오] | KBS 260805 (수) 방송",
-category:"電台/廣播",
+category:"直播",
 date:"2026.08.05",
 videoId:"CeQH9at4Fxg",
 description:"Gabee's Super Radio"
