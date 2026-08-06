@@ -455,6 +455,94 @@
         transition: all 0.2s;
     }
     
+	/* 選單容器固定在右上角 */
+	.menu-container {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		z-index: 1000;
+	}
+
+	/* 主按鈕（平常顯示的觸發鈕） */
+	.menu-toggle-btn {
+		background: var(--btn-bg, rgba(255, 255, 255, 0.85));
+		border: 1px solid var(--btn-border, #C3D9F0);
+		color: var(--btn-text, #1A365D);
+		padding: 8px 16px;
+		font-size: 13px;
+		font-family: 'Inter', sans-serif;
+		font-weight: 500;
+		border-radius: 20px;
+		cursor: pointer;
+		backdrop-filter: blur(10px);
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+	}
+
+	.menu-toggle-btn:hover {
+		background: var(--btn-hover-bg, #62A4B7);
+		color: #ffffff;
+		border-color: var(--btn-hover-bg, #62A4B7);
+	}
+
+	/* 隱藏的下拉選單區塊（預設收合） */
+	.controls-dropdown {
+		position: absolute;
+		top: 45px;
+		right: 0;
+		background: var(--card-bg, rgba(255, 255, 255, 0.9));
+		border: 1px solid var(--card-border, #C3D9F0);
+		backdrop-filter: blur(15px);
+		border-radius: 16px;
+		padding: 14px;
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		
+		/* 收合時的動畫狀態 */
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all 0.3s ease;
+	}
+
+	/* 當加上 .show 類別時展開 */
+	.controls-dropdown.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	/* 內部按鈕微調 */
+	.controls-wrapper {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.home-btn, .theme-btn {
+		background: var(--btn-bg);
+		border: 1px solid var(--btn-border);
+		color: var(--btn-text);
+		padding: 6px 12px;
+		font-size: 12px;
+		border-radius: 12px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.home-btn:hover, .theme-btn:hover {
+		background: var(--btn-hover-bg);
+		color: #ffffff;
+	}
+
+	.theme-toggle-group {
+		display: flex;
+		gap: 4px;
+	}
   </style>
 </head>
 <body>
@@ -462,14 +550,14 @@
   <div class="content-wrapper">
 
     <header class="header">
-      <div class="controls-wrapper">
+      <!--<div class="controls-wrapper">
         <a href="../../index.html" class="home-btn">🏠 首頁</a> 
 		<div class="theme-toggle-group">
           <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
           <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
         </div>
 		<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
-      </div>
+      </div>-->
       <div class="controls-wrapper" style="margin-top: 4px; margin-bottom: 8px;">
         <!--<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>
         <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>-->
@@ -484,6 +572,24 @@
 	  
     </header>
 
+<!-- 右上角收納式功能選單 -->
+<div class="menu-container">
+    <button class="menu-toggle-btn" onclick="toggleMenu()" title="功能選單">⚙️ 選單</button>
+    
+    <!-- 點擊後才會展開的功能選單內容 -->
+    <div class="controls-dropdown" id="controlsDropdown">
+        <div class="controls-wrapper">
+            <a href="../index.html" class="home-btn">🏠 首頁</a> 
+        </div>
+        <div class="controls-wrapper" style="margin-top: 8px;">
+            <div class="theme-toggle-group">
+                <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+                <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+            </div>
+            <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
+        </div>
+    </div>
+</div>
     <!-- WAY 2 U 分頁 -->
     <div id="tab-video1" class="tab-content">
       <!--<div class="video-controls-bar" style="display: flex; flex-direction: column; gap: 16px; padding: 20px 10px 10px 10px;">
@@ -1173,6 +1279,22 @@
             state.animationId = null;
         }
     }
+	
+	// 控制選單的展開與收合
+	function toggleMenu() {
+		const dropdown = document.getElementById('controlsDropdown');
+		dropdown.classList.toggle('show');
+	}
+
+	// 點擊畫面其他空白處時自動收合選單
+	window.addEventListener('click', function(e) {
+		const container = document.querySelector('.menu-container');
+		const dropdown = document.getElementById('controlsDropdown');
+		if (!container.contains(e.target) && dropdown.classList.contains('show')) {
+			dropdown.classList.remove('show');
+		}
+	});
+
   </script>
 </body>
 </html>
