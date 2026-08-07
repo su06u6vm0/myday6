@@ -1,5 +1,38 @@
 // 1. 影片資料庫
 const videos = [
+
+{
+title:"Young K \"F world\" LIVE CLIP",
+category:"Live 演唱",
+date:"2026.08.07",
+videoId:"MrV4SOzTsxk",
+description:"DAY6"
+},
+
+{
+title:"[full] 🎵너의 모든 순간 - 영케이(Young K)",
+category:"Live 演唱",
+date:"2026.08.07",
+videoId:"E2VgyjVKFZA",
+description:"Today's Joo Woojae"
+},
+
+{
+title:"✨고민상담 하자고 불렀는데 노래만 주구장창 부르고 간 영케이(Young K)",
+category:"訪談",
+date:"2026.08.07",
+videoId:"1wcAjxpYKN8",
+description:"Today's Joo Woojae"
+},
+
+{
+title:"드디어 허남준이가 제 연락을 받았습니다",
+category:"訪談",
+date:"2026.08.06",
+videoId:"919SHf_Jm0E",
+description:"공케이"
+},
+
 {
 title:"[DAY6 VLOG] Kang Young Hyun VLOG | ＜YOUNGEST＞ Comeback",
 category:"幕後花絮",
@@ -328,6 +361,14 @@ category:"音樂節目",
 date:"2026.07.30",
 videoId:"D63YFA68v-8",
 description:"M Countdown"
+},
+
+{
+title:"Shut The Door 프로모션 영상",
+category:"訪談",
+date:"2026.07.30",
+videoId:"8711qTL4vYA",
+description:"공케이"
 },
 
 {
