@@ -57,17 +57,42 @@
       display: flex; justify-content: center; transition: background-color 0.3s ease, color 0.3s ease; 
     }
 
-    .content-wrapper {max-width: 800px; width: 100%; background: var(--bg-content); min-height: 100vh; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding-bottom: 20px; transition: all 0.3s ease; }
+    .content-wrapper {
+		max-width: 800px; 
+		width: 100%; 
+		background: var(--bg-content); 
+		min-height: 100vh; 
+		box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+		padding-bottom: 20px; 
+		transition: all 0.3s ease; 
+	}
 
     /* ==================== 
        2. 版面與畫報排版
        ==================== */
-    .header { background-color: var(--bg-content); padding: 20px 20px 0 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .header h1 { font-size: 1.3rem; margin: 0; font-weight: 600; color: var(--text-main); line-height: 1.4; }
+    .header { 
+		background-color: var(--bg-content); 
+		padding: 20px 20px 0 20px; 
+		text-align: center; display: flex; 
+		flex-direction: column; 
+		align-items: center; 
+	}
+    .header h1 { 
+		font-size: 1.3rem; 
+		margin: 0; 
+		font-weight: 600; 
+		color: var(--text-main); 
+		line-height: 1.4; 
+	}
 
-    .controls-wrapper { display: flex; gap: 12px; align-items: center; margin-top: 10px; margin-bottom: 16px; 
-	                    flex-wrap: wrap;			/* 不夠寬時換下一行 */
-						justify-content: center; 	/* 整體置中 */}
+    .controls-wrapper { 
+		display: flex; gap: 12px; 
+		align-items: center; 
+		margin-top: 10px; 
+		margin-bottom: 16px; 
+		flex-wrap: wrap;			/* 不夠寬時換下一行 */
+		justify-content: center; 	/* 整體置中 */
+	}
     .home-btn { background-color: var(--home-btn-bg); color: var(--text-main); text-decoration: none; padding: 6px 16px; border-radius: 16px; font-size: 0.9rem; font-weight: bold; }
     .theme-btn,
     .home-btn {
@@ -458,33 +483,39 @@
         transition: all 0.2s;
     }
     
-	/* 選單容器固定在右上角 
+	/* 選單容器在右上角 */
 	.menu-container {
-		position: fixed;
-		top: 20px;
-		right: 20px;
-		z-index: 1000;
-	}*/
-	.menu-container {
-		position: absolute;
-		top: 20px;
-		right: 20px;
+		position: relative;
+		/*top: 20px;
+		right: 20px;*/
 	}
 
 	/* 主按鈕（平常顯示的觸發鈕） */
 	.menu-toggle-btn {
-		background: var(--btn-bg, rgba(255, 255, 255, 0.85));
-		border: 1px solid var(--btn-border, #C3D9F0);
-		color: var(--btn-text, #1A365D);
-		padding: 8px 16px;
-		font-size: 13px;
-		font-family: 'Inter', sans-serif;
-		font-weight: 500;
-		border-radius: 20px;
+		width: 28px;
+		height: 28px;
+		padding: 0;					/* 移除預設內距 */
+
+		display: flex;
+		align-items: center;		/* 垂直置中 */
+		justify-content: center;	/* 水平置中 */
+
+		border-radius: 50%;	 		/* 圓形 */
+
+		background: var(--btn-bg, rgba(255,255,255,.9));
+		border: 1px solid var(--btn-border,#C3D9F0);
+		color: var(--btn-text,#1A365D);
+
+		font-size: 12px;
 		cursor: pointer;
+
 		backdrop-filter: blur(10px);
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+		transition:
+			background-color .2s,
+			color .2s,
+			transform .2s;
 	}
 
 	.menu-toggle-btn:hover {
@@ -551,6 +582,19 @@
 		display: flex;
 		gap: 4px;
 	}
+	
+	.header-top{
+		width: 100%;					/* 讓這一列撐滿 Header 寬度 */
+		display:flex;
+		justify-content:space-between; 	/* 左右分開 */
+		align-items:center;				/* 垂直置中 */
+		margin-bottom:12px;	 			/* 與下面的標題保留 12px 距離 */
+	}
+	.site-title{
+		font-size:15px;
+		font-weight:500;
+		color: var(--text-main);       /* 使用主題文字顏色 */
+	}
   </style>
 </head>
 <body>
@@ -566,12 +610,37 @@
         </div>
 		<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
       </div>-->
-      <div class="controls-wrapper" style="margin-top: 4px; margin-bottom: 8px;">
-        <!--<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>
-        <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>-->
-      </div>
+	  
+    <div class="header-top">
 
-      <h1>《Shut The Door》歌詞應援</h1>
+        <div class="site-title">
+            YOUNGEST
+        </div>
+		<!-- 右上角收納式功能選單 -->
+		<div class="menu-container">
+			<button class="menu-toggle-btn" onclick="toggleMenu()" title="功能選單">☰</button>
+			
+			<!-- 點擊後才會展開的功能選單內容 -->
+			<div class="controls-dropdown" id="controlsDropdown">
+				<div class="controls-wrapper">
+					<a href="../index.html" class="home-btn">🏠 首頁</a> 
+				</div>
+				<div class="controls-wrapper" style="margin-top: 8px;">
+					<div class="theme-toggle-group">
+						<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+						<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+					</div>
+					<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
+				</div>
+			</div>
+		</div>
+		<!--<div class="controls-wrapper" style="margin-top: 4px; margin-bottom: 8px;">
+			<button class="theme-btn active" id="lyrics-toggle-btn" onclick="toggleLyricsMode()">🎵 動態歌詞：開</button>
+			<button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
+		</div>-->
+	</div>
+	
+	<h1>《Shut The Door》歌詞應援</h1>
 
       <div class="tabs-container">
         <button class="tab-btn" onclick="openTab('tab-video1', this)">Singalong</button>
@@ -580,24 +649,6 @@
 	  
     </header>
 
-<!-- 右上角收納式功能選單 -->
-<div class="menu-container">
-    <button class="menu-toggle-btn" onclick="toggleMenu()" title="功能選單">🦊</button>
-    
-    <!-- 點擊後才會展開的功能選單內容 -->
-    <div class="controls-dropdown" id="controlsDropdown">
-        <div class="controls-wrapper">
-            <a href="../index.html" class="home-btn">🏠 首頁</a> 
-        </div>
-        <div class="controls-wrapper" style="margin-top: 8px;">
-            <div class="theme-toggle-group">
-                <button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
-                <button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
-            </div>
-            <button class="theme-btn" id="instruction-btn" onclick="showInstruction()">✏️ 說明</button>
-        </div>
-    </div>
-</div>
     <!-- WAY 2 U 分頁 -->
     <div id="tab-video1" class="tab-content">
       <!--<div class="video-controls-bar" style="display: flex; flex-direction: column; gap: 16px; padding: 20px 10px 10px 10px;">
