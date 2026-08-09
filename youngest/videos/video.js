@@ -2,6 +2,30 @@
 const videos = [
 
 {
+title:"[#간식게임] 정답 맞히고 선물 받아 가세요🎁 여름방학을 맞아 깜짝 선물과 함께 돌아온 디저트 게임✨ #highlight#놀라운토요일 | amazingsaturday EP.429",
+category:"綜藝節目",
+date:"2026.08.08",
+videoId:"Hc9AlxvZiKk",
+description:"驚人的星期六"
+},
+
+{
+title:"후배들을 위해 스페셜 선물을 양보한(?) 엄정화🪽 내친김에 정답까지 시원하게 쏜다!🔫#놀라운토요일 | amazingsaturday EP.429 | tvN 260808 방송",
+category:"綜藝節目",
+date:"2026.08.08",
+videoId:"4ww6XIAS0Ns",
+description:"驚人的星期六"
+},
+
+{
+title:"\"목소리 큰 사람이 이기는 거야!!!\" 기세 넘치는 목소리로 모두를 겁먹게 만든 박성웅💥#놀라운토요일 | amazingsaturday EP.429 | tvN 260808 방송",
+category:"綜藝節目",
+date:"2026.08.08",
+videoId:"6FDR7NkKYnY",
+description:"驚人的星期六"
+},
+
+{
 title:"Young K \"F world\" LIVE CLIP",
 category:"Live 演唱",
 date:"2026.08.07",
