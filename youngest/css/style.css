@@ -370,7 +370,7 @@
     /* ==================== 
        6. 動態歌詞
        ==================== */
-    #way2u-lyrics, #hyper-lyrics{
+    #stdsa-lyrics, #stdmv-lyrics{
       -webkit-overflow-scrolling: touch;
       overflow-x: hidden !important; 
       overscroll-behavior-x: none;
@@ -378,20 +378,20 @@
       box-sizing: border-box;
     }
 
-    #way2u-lyrics p, #hyper-lyrics p {
+    #stdsa-lyrics p, #stdmv-lyrics p {
       white-space: normal;
       word-wrap: break-word;
       max-width: 100%;
     }
     
     /*淺色模式（預設）*/
-    #way2u-lyrics b, #hyper-lyrics b{
+    #stdsa-lyrics b, #stdmv-lyrics b{
         color: #008071;
         font-weight: 700;
         transition: color 0.3s;
     }
     
-    #way2u-lyrics p.current-lyric, #hyper-lyrics p.current-lyric{
+    #stdsa-lyrics p.current-lyric, #stdmv-lyrics p.current-lyric{
         background: rgba(0, 128, 113, 0.15);
         border-radius: 8px;
         transform: scale(1.05);
@@ -400,27 +400,27 @@
         color: #000000;
     }
     
-    #way2u-lyrics p, #hyper-lyrics p{
+    #stdsa-lyrics p, #stdmv-lyrics p{
         padding: 6px 10px;
         margin: 4px 0;
         transition: all 0.3s ease;
         opacity: 0.5;
     }
     
-    #way2u-lyrics p.current-lyric b, #hyper-lyrics p.current-lyric b{
+    #stdsa-lyrics p.current-lyric b, #stdmv-lyrics p.current-lyric b{
         color: #008071;
     }
     
     /*深色模式*/
-    [data-theme="dark"] #way2u-lyrics b,
-    [data-theme="dark"] #hyper-lyrics b {
+    [data-theme="dark"] #stdsa-lyrics b,
+    [data-theme="dark"] #stdmv-lyrics b {
         color: #80cbc4;
         font-weight:700;
         transition:color 0.3s;
     }
     
-    [data-theme="dark"] #way2u-lyrics p.current-lyric,
-    [data-theme="dark"] #hyper-lyrics p.current-lyric {
+    [data-theme="dark"] #stdsa-lyrics p.current-lyric,
+    [data-theme="dark"] #stdmv-lyrics p.current-lyric {
         background: rgba(255, 255, 255, 0.15);
         border-radius:8px;
         transform:scale(1.05);
@@ -429,8 +429,8 @@
         color:#e5dbdb;
     }
     
-    [data-theme="dark"] #way2u-lyrics p, 
-    [data-theme="dark"] #hyper-lyrics p {
+    [data-theme="dark"] #stdsa-lyrics p, 
+    [data-theme="dark"] #stdmv-lyrics p {
         padding:6px 10px;
         margin:4px 0;
         transition: all 0.3s ease;
@@ -438,13 +438,13 @@
         color:#e5dbdb;
     }
     
-    [data-theme="dark"] #way2u-lyrics p.current-lyric b, 
-    [data-theme="dark"] #hyper-lyrics p.current-lyric b {
+    [data-theme="dark"] #stdsa-lyrics p.current-lyric b, 
+    [data-theme="dark"] #stdmv-lyrics p.current-lyric b {
         color:#80cbc4;
     }
 
     /* 淺色（預設） */
-    #way2u-container, #hyper-container{
+    #stdsa-container, #stdmv-container{
           background: linear-gradient(135deg, #edf7f6 0%, #d1e8e5 100%); 
           color: #2c4a44; 
           padding: 25px; 
@@ -477,8 +477,8 @@
     }
 
     /* 深色 */
-    [data-theme="dark"] #way2u-container,
-    [data-theme="dark"] #hyper-container{
+    [data-theme="dark"] #stdsa-container,
+    [data-theme="dark"] #stdmv-container{
           background: linear-gradient(135deg, #1a1515 0%, #121010 100%);
           color: #e5dbdb; 
           padding: 25px;
