@@ -1,112 +1,164 @@
+/* =========================
+   主題顏色
+   ========================= */
+/* 淺色模式 */
+:root {
+    --bg-body: #f5f5f5;
+    --bg-card: #fafafa;
+    --text-main: #222222;
+    --text-sub: #777777;
+    --border: #dddddd;
+
+    --btn-bg: #333333;
+    --btn-text: #ffffff;
+    --btn-hover: #555555;
+
+    --pagination-bg: #ffffff;
+    --pagination-text: #5B6574;
+    --pagination-border: #ddd;
+    --pagination-active-bg: #333333;
+}
+
+/* 深色模式 */
+[data-theme="dark"] {
+    --bg-body: #111111;
+    --bg-card: #1d1d1d;
+    --text-main: #ffffff;
+    --text-sub: #aaaaaa;
+    --border: #444444;
+
+    --btn-bg: #ffffff;
+    --btn-text: #111111;
+    --btn-hover: #dddddd;
+
+    --pagination-bg: #1d1d1d;
+    --pagination-text: #ffffff;
+    --pagination-border: #555555;
+    --pagination-active-bg: #333333;
+}
+
+/* 基本設定 */
 body {
     font-family: Arial, sans-serif;
-    background:#111;
-    color:white;
-    margin:0;
+    background: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    text-align:center;
-    padding:60px 20px;
+    display: block;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .filter {
-    text-align:center;
-    margin-bottom:30px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-button {
-    background:white;
-    border:none;
-    padding:10px 18px;
-    margin:5px;
-    border-radius:20px;
-    cursor:pointer;
+/* Filter 按鈕 */
+.filter button {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 7px 13px;
+    margin: 4px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s ease;
 }
 
+.filter button:hover {
+    background: var(--btn-hover);
+}
+
+/* 影片區域 */
 #video-container {
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    padding:30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
 }
 
+/* 影片卡片 */
 .card {
-    background:#1d1d1d;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card .info {
+    padding: 15px;
+    text-align: left;
 }
 
 .card:hover {
-    transform:translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .card img {
-    width:100%;
-    display:block;
+    width: 100%;
+    display: block;
 }
 
 .info {
-    padding:15px;
+    padding: 15px;
 }
 
 .category {
-    color:#aaa;
-    font-size:14px;
+    color: var(--text-sub);
+    font-size: 14px;
 }
 
+/* 連結 */
 a {
-    color:white;
-    text-decoration:none;
+    color: var(--text-main);
+    text-decoration: none;
 }
 
-/* 分頁按鈕外框 */
+/* 分頁 */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 40px 0;
 }
 
-/* 分頁按鈕基礎樣式*/
 .pagination button {
-  padding: 8px 14px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  color: #5B6574;
-  border-radius: 18px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s ease-in-out;
-} 
+    padding: 8px 14px;
+    border: 1px solid var(--pagination-border);
+    background-color: var(--pagination-bg);
+    color: var(--pagination-text);
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
 
-/* 滑鼠懸停(深色)
 .pagination button:hover:not(:disabled) {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
-}*/
-/* 分頁按鈕基礎樣式(淺色) */
-.pagination button:hover:not(:disabled) {
-    background: #eef6fb;
-    border-color: #9cc9ea;
-    color: #2b6cb0;
+    background: var(--btn-hover);
+    color: var(--btn-text);
+    border-color: var(--btn-hover);
     transform: translateY(-2px);
 }
 
-/* 當前被選中的頁碼 */
+/* 當前頁碼 */
 .pagination button.active {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
-  font-weight: bold;
+    background-color: var(--pagination-active-bg);
+    color: #ffffff;
+    border-color: var(--pagination-active-bg);
+    font-weight: bold;
 }
 
-/* 停用按鈕（如：第一頁時的「上一頁」） */
+/* 停用按鈕 */
 .pagination button:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
+    opacity: 0.3;
+    cursor: not-allowed;
 }
+
