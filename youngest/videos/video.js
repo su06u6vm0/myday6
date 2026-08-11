@@ -2,6 +2,14 @@
 const videos = [
 
 {
+title:"Young K 2nd Full Album ＜YOUNGEST＞ Busking Live Behind",
+category:"幕後花絮",
+date:"2026.08.11",
+videoId:"CqSpza7pD94",
+description:"Busking Live Behind"
+},
+
+{
 title:"[#간식게임] 정답 맞히고 선물 받아 가세요🎁 여름방학을 맞아 깜짝 선물과 함께 돌아온 디저트 게임✨ #highlight#놀라운토요일 | amazingsaturday EP.429",
 category:"綜藝節目",
 date:"2026.08.08",
