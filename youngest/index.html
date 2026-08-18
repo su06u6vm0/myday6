@@ -121,8 +121,29 @@
 			font-size: 12px;
 			color: #9AAAB5;
 			letter-spacing: 1px;
+			font-family: "Quicksand", sans-serif;
+		}
+		
+		.footer-bottom {
+			margin-top: 18px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 14px;
+			font-size: 10px;
+			letter-spacing: 2px;
+			color: #9AAAB5;
 		}
 
+		.about-link {
+			color: #7FB8D2;
+			text-decoration: none;
+		}
+
+		.about-link:hover {
+			opacity: 0.6;
+		}
+		
 		/* 電腦版 */
 		@media (min-width:768px){
 			.container {
@@ -138,6 +159,14 @@
 			}
 		}
 	</style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Vercel Analytics 
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>-->
 </head>
 
 <body>
@@ -164,11 +193,19 @@
 			<a class="card" href="https://youngk.lnk.to/YOUNGEST">
 				<div class="icon">🎧</div>
 				<div class="title">Listen</div>
-				<div class="description">Official Streaming</div>
+				<div class="description">官方收聽連結</div>
 			</a>
 		</div>
+		<footer>
+			<div class="footer-message">Stay Happy. ◡̎</div>
 
-		<footer>Stay Happy. ◡̎</footer>
+			<div class="footer-bottom">
+				<a class="about-link" href="about/index.html">ABOUT</a>
+				<span>·</span>
+				<!--<span>© 2026 YK ARCHIVE</span>-->
+				<span>©xuannaday</span>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>
