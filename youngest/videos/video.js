@@ -2,6 +2,54 @@
 const videos = [
 
 {
+title:"'엠카드림' 오늘의 M-Zㅣ니🧞‍♂️ Young K (DAY6), KISS OF LIFE, BABYMONSTER #엠카운트다운 EP.942 | Mnet 260820 방송",
+category:"音樂節目",
+date:"2026.08.20",
+videoId:"PhGPIn0EpFM",
+description:"M Countdown"
+},
+
+{
+title:"🎵이벤트🎵 영케이(Young K)가 작정하고 부르면 생기는 일 | Shut The Door, SPIKE, Best Part, 나는 나비 [무싱사 EP.3]",
+category:"Live 演唱",
+date:"2026.08.20",
+videoId:"0W-368rn9uY",
+description:"MUSINSA TV"
+},
+
+{
+title:"Young K \“Shut The Door\” Music Show Behind",
+category:"幕後花絮",
+date:"2026.08.19",
+videoId:"yA0dGkKEPRQ",
+description:"Music Show Behind"
+},
+
+{
+title:"[ENG] Young K (DAY6) TALK & STAGE [The Seasons S9 EP.18] | KBS WORLD TV 260814",
+category:"Live 演唱",
+date:"2026.08.18",
+videoId:"uQSUy7D0DSE",
+description:"The Seasons"
+},
+
+{
+title:"[#간식게임] 눈이 부신 리센느를 숨김없이 보여줘✨ 대세 리센느와 함께한 여름 방학🏖️ #highlight#놀라운토요일 | amazingsaturday EP.430",
+category:"綜藝節目",
+date:"2026.08.15",
+videoId:"1h4v7pLBwm0",
+description:"驚人的星期六"
+},
+
+{
+title:"[SUB] 내 혈육 초딩 오빠 영케이",
+category:"訪談",
+date:"2026.08.13",
+videoId:"fqVfO6MwMr0",
+description:"조나단"
+},
+
+{
 title:"Young K 2nd Full Album ＜YOUNGEST＞ Busking Live Behind",
 category:"幕後花絮",
 date:"2026.08.11",
