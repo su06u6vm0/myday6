@@ -2,6 +2,54 @@
 const videos = [
 
 {
+title:"[#간식게임] 갑분 연기 챌린지..? 수상할 정도로 연기에 진심인 도레미들🎬 #highlight #유료광고포함#놀라운토요일 | amazingsaturday EP.432",
+category:"綜藝節目",
+date:"2026.08.29",
+videoId:"NcgF4-VKVcc",
+description:"驚人的星期六"
+},
+
+{
+title:"미미가 신곡 홍보에 왜 이리 진심이야🩷 신발 벗어 던지고 무대 찢은 미미💥 #유료광고포함#놀라운토요일 | amazingsaturday EP.432 | tvN 260829 방송",
+category:"綜藝節目",
+date:"2026.08.29",
+videoId:"hwM5bNnV834",
+description:"驚人的星期六"
+},
+
+{
+title:"[선공개] 미미 비미 아니고 미미 〈BBB〉입니다🔥 홍진호에게는 너무 어려운 미미 신곡😆#놀라운토요일 | amazingsaturday EP.432",
+category:"綜藝節目",
+date:"2026.08.28",
+videoId:"El3mDgz_ISc",
+description:"驚人的星期六"
+},
+
+{
+title:"Young K Solo Tour ＜YOUNGEST＞ Concert Behind #1",
+category:"幕後花絮",
+date:"2026.08.28",
+videoId:"Tqt-cMVDT1k",
+description:"Concert Behind"
+},
+
+{
+title:"씬롱이가 이걸 맞힌다고..?🫢 최애 아이스크림 등장에 말문 터진 씬롱🍦 #유료광고포함#놀라운토요일 | amazingsaturday EP.431 | tvN 260822 방송",
+category:"綜藝節目",
+date:"2026.08.22",
+videoId:"a6qGwfGIYMM",
+description:"驚人的星期六"
+},
+
+{
+title:"'그림으로 말해요'에 케화백의 등장이라니..✨ 정답을 부르는 영케이의 그림 실력🎨#놀라운토요일 | amazingsaturday EP.431 | tvN 260822 방송",
+category:"綜藝節目",
+date:"2026.08.22",
+videoId:"R1_jFWx7MRI",
+description:"驚人的星期六"
+},
+
+{
 title:"'엠카드림' 오늘의 M-Zㅣ니🧞‍♂️ Young K (DAY6), KISS OF LIFE, BABYMONSTER #엠카운트다운 EP.942 | Mnet 260820 방송",
 category:"音樂節目",
 date:"2026.08.20",
