@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../images/icon.png" type="image/png">
+	<link rel="apple-touch-icon" href="../images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>이것밖에는 없다歌詞應援</title>
+	<!--<link rel="stylesheet" href="../../css/reaction.css">-->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!--讀取使用者之前選的主題-->
+	<!--把主題設定到 <html>-->
+	<!--設定全域影片 ID-->
+	<script>
+		const savedTheme = localStorage.getItem('pageTheme') || 'light';
+		document.documentElement.setAttribute('data-theme', savedTheme);	
+		window.MY_VIDEO_ID = "ShutTheDoor_Singalong";
+	</script>
+	<style></style>
+  </head>
+<body>
+
+  <div class="content-wrapper">
+    <header class="header">
+    <div class="header-top">
+		<!-- 左側標題 -->
+        <div class="site-title">
+            YOUNGEST
+        </div>
+		
+	    <!-- 中間延伸線 -->
+		<div class="header-line"></div>	
+		
+		<!-- 右側功能區 -->
+		<div class="menu-container">
+			<!-- 首頁按鈕 -->
+			<a href="../index.html" class="home-btn" aria-label="首頁">
+				<!-- 首頁 SVG 圖示 -->
+				<svg viewBox="0 0 24 24" fill="none">
+					<path d="M3 11L12 3L21 11V21H14V15H10V21H3V11Z"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linejoin="round"
+						  stroke-linecap="round"/>
+				</svg>
+			</a>
+
+			<!-- 說明按鈕 -->
+			<button class="home-btn" onclick="showInstruction()" aria-label="使用說明">
+				<svg viewBox="0 0 24 24" fill="none">
+					<circle cx="12" cy="12" r="9"
+							stroke="currentColor"
+							stroke-width="2"/>
+					<path d="M12 10V17"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+					<circle cx="12" cy="7" r="1"
+							fill="currentColor"/>
+				</svg>
+			</button>
+
+			<!-- 收合選單按鈕 -->
+			<button class="menu-toggle-btn"  onclick="toggleMenu()" aria-label="功能選單">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+					<path d="M3 6h18M3 12h18M3 18h18"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+				</svg>
+			</button>
+			<!-- 點擊後展開的功能選單內容 -->
+			<div class="controls-dropdown" id="controlsDropdown">
+				<div class="theme-toggle-group">
+					<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+					<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<h1>《이것밖에는 없다》歌詞應援</h1>
+
+      <div class="tabs-container">
+        <button class="tab-btn" onclick="openTab('tab-video3', this)">nothing but</button>
+        <!--<button class="tab-btn" onclick="openTab('tab-video2', this)">M/V</button>-->
+      </div>
+	  
+    </header>
+
+    <!-- Singalong 分頁 -->
+    <div id="tab-video3" class="tab-content">
+      <div id="video-wrapper-1" class="video-responsive-wrapper">
+          <div id="player-container-video3"></div> 
+          <div id="subtitle-video3" class="subtitle-overlay"></div>
+          <button id="exit-fs-btn-1" class="exit-fs-btn-global" onclick="exitFullscreenMode('video-wrapper-1')">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+      </div>
+      
+      <!-- Singalong 應援歌詞 -->
+      <div class="lyrics-container" id="stdsa-container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
+          <h3 class="lyrics-title">🎵 이것밖에는 없다 (nothing but)</h3>
+          <div style="display: flex; gap: 8px;">
+            <button class="font-btn" onclick="adjustFontSize('notbut-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('notbut-lyrics', 2)">A +</button>
+          </div>
+        </div>
+        <div id="notbut-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
+          <p data-start="0.0" data-end="7.0">♪ ༘⋆</p>
+		  <p data-start="7.5" data-end="12.0"><b>영! 케! 이! 밖! 에! 는! 없! 다!</b><br /><b>永Ｋ伊!</b></p>
+		  <p data-start="13.8" data-end="17.0">끝까지 안아 줄게라는<br />跟嘎吉 安那 朱給拉嫩</p>
+		  <p data-start="17.2" data-end="19.0">말이 무색하게 <br />馬里 木塞卡給</p>
+		  <p data-start="20.2" data-end="23.0">내 품 안에서 너는<br />內 普 曼內搜 諾嫩</p>
+		  <p data-start="23.2" data-end="26.3">흐느끼고 있네<br />呵呢ki勾 因內</p>
+		  <p data-start="26.6" data-end="29.0"><b>괜찮아 진짜 괜찮아</b><br /><b>肯掐拿 金價 肯掐拿</b></p>
+		  <p data-start="29.2" data-end="32.5"><b>우리 이러지 말자</b><br /><b>嗚里 一羅吉 馬加</b></p>
+		  <p data-start="32.9" data-end="39.0">버터 보려고 했지만<br />波偷 波里勾 黑吉滿</p>
+		  <p data-start="39.4" data-end="45.0"><b>사실은 느끼고 있었어</b><br /><b>沙西冷 嫩ki勾 一索索</b></p>
+		  <p data-start="45.2" data-end="47.4">이별의 시작을<br />一別雷 西加格</p>
+		  <p data-start="47.6" data-end="50.3">점점 가까워졌어<br />宗宗 嘎卡沃救搜</p>
+		  <p data-start="51.3" data-end="54.4">돌릴 수 없는 끝 <br />豆里 蘇 偶嫩 根</p>
+		  <p data-start="54.5" data-end="57.4">마지막을 마주하는 건<br />嘛基嘛格 嘛朱哈嫩 哥恩</p>
+		  <p data-start="58.2" data-end="60.7">참 못 할 짓이야<br />參 莫 哈 基西呀</p>
+		  <p data-start="60.8" data-end="63.0">가루가 되어 빠져나가는 사랑을 <br />嘎嚕嘎 堆歐 巴啾那嘎嫩 撒朗兒</p>
+		  <p data-start="63.5" data-end="66.2">두 팔로 안고 있을 수밖에 없네 <br />度 巴羅 安勾 伊搜 蘇巴給 偶內</p>
+		  <p data-start="66.4" data-end="68.8">다 부질없대도<br />搭 部基歐得豆</p>
+		  <p data-start="69.0" data-end="71.6">아무런 의미 없대도<br />啊木隆 一米 偶得豆</p>
+		  <p data-start="72.0" data-end="76.0">점점 품에서 작아지고 있어도 <br />宗宗 普美搜 砸嘎基勾 伊搜豆</p>
+		  <p data-start="76.5" data-end="78.2">결국 하나 남지 않는대도<br />給歐古 哈那 南基 安嫩得豆</p>
+		  <p data-start="78.4" data-end="79.5">나에겐 이것밖에는 없다<br />那欸給 伊勾巴給嫩 偶搭</p>
+		  <p data-start="79.6" data-end="83.5">사라져 가는 이 사랑밖에 없다<br />撒拉啾 嘎嫩 一 撒朗 巴給 偶搭</p>
+		  <p data-start="83.6" data-end="89.6">안 맞는 거라면<br />安 馬嫩 勾拉謬</p>
+		  <p data-start="90.0" data-end="96.2">맞춰낼게<br />嘛啾內給</p>
+		  <p data-start="96.5" data-end="98.5">부족한 거라면<br />部佐干 勾拉謬</p>
+		  <p data-start="98.8" data-end="101.4">채워낼게<br />切沃內給</p>
+		  <p data-start="102.3" data-end="104.5">지금의 넌 그 어떤 말도 <br />基更欸 嫩 格 偶更 馬豆</b></p>
+		  <p data-start="105.5" data-end="107.5">소용이 없나 봐<br />搜用伊 偶那 巴</p>
+		  <p data-start="109.0" data-end="111.2">가루가 되어 빠져나가는 사랑을<br />嘎嚕嘎 堆歐 巴啾那嘎嫩 撒朗兒</p>
+		  <p data-start="111.5" data-end="114.4">두 팔로 안고 있을 수밖에 없네 <br />度 巴羅 安勾 伊搜 蘇巴給 偶內</p>
+		  <p data-start="115.0" data-end="117.4">다 부질없대도<br />搭 部基歐得豆</p>
+		  <p data-start="117.6" data-end="119.2">아무런 의미 없대도<br />啊木隆 一米 偶得豆</p>
+		  <p data-start="119.5" data-end="122.0">점점 품에서 작아지고 있어도<br />宗宗 普美搜 砸嘎基勾 伊搜豆</p>
+		  <p data-start="122.5" data-end="127.6">결국 하나 남지 않는대도 <br />給歐古 哈那 南基 安嫩得豆</p>
+		  <p data-start="128.2" data-end="130.2">나에겐 이것밖에는 없다<br />那欸給 伊勾巴給嫩 偶搭</p>
+		  <p data-start="131.1" data-end="134.5">흔적조차 사라져<br />昏積久恰 撒拉久</p>
+		  <p data-start="135.4" data-end="136.8">나만이 남겨지면<br />那嘛尼 南給基面</p>
+		  <p data-start="137.5" data-end="140.2">그대로 멈춘 채로<br />格得羅 蒙春 切羅</p>
+		  <p data-start="140.7" data-end="143.4">한발도 못 내딛어<br />韓巴豆 莫 內迪搜</p>
+		  <p data-start="143.6" data-end="146.5">우리 쌓았던 추억<br />嗚哩 撒啊登 出喔</p>
+		  <p data-start="147.5" data-end="150.0">되뇌며 지내겠지<br />堆內謬 基內給基</p>
+		  <p data-start="150.2" data-end="153.0">가루가 되어 빠져나가는 사랑을 <br />嘎嚕嘎 堆喔 巴啾那嘎嫩 撒朗兒</p>
+		  <p data-start="153.2" data-end="156.4">두 팔로 안고 있을 수밖에 없네 <br />度 巴羅 安勾 伊搜 蘇巴給 偶內</p>
+		  <p data-start="156.6" data-end="157.0">다 부질없대도<br />搭 部基歐得豆</p>
+		  <p data-start="158.0" data-end="160.0">아무런 의미 없대도<br />啊木隆 一米 偶得豆</p>
+		  <p data-start="161.2" data-end="164.0">점점 품에서 작아지고 있어도 <br />宗宗 普美搜 砸嘎基勾 伊搜豆</p>
+		  <p data-start="164.4" data-end="167.3">결국 하나 남지 않는대도 <br />給歐古 哈那 南基 安嫩得豆</p>
+		  <p data-start="167.5" data-end="170.2">나에겐 이것밖에는 없다 <br />那欸給 伊勾巴給嫩 偶搭</p>
+		  <p data-start="171.0" data-end="173.7">그래도 역시 이 사랑밖에 없다<br />格雷豆 優西 一 撒朗巴給 偶搭</p>
+		  <p data-start="174.5" data-end="177.5"><b>(함성~~~)</b><br /><b>(歡呼~~~)</b></p>
+		  <p data-start="178.4" data-end="179.4"></p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- M/V 分頁 
+    <div id="tab-video2" class="tab-content">
+      <div id="video-wrapper-2" class="video-responsive-wrapper">
+          <div id="player-container-video2"></div>
+          <div id="subtitle-video2" class="subtitle-overlay"></div>
+          <button id="exit-fs-btn-2" class="exit-fs-btn-global" onclick="exitFullscreenMode('video-wrapper-2')">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+      </div>-->
+      
+      <!-- M/V 應援歌詞 
+      <div class="lyrics-container" id="stdmv-container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; position: relative; margin-bottom: 15px; gap: 12px;">
+          <h3 class="lyrics-title">🚪 Shut The Door</h3>
+          <div style="display: flex; gap: 8px;">
+            <button class="font-btn" onclick="adjustFontSize('stdmv-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('stdmv-lyrics', 2)">A +</button>
+          </div>
+        </div>
+		<div id="stdmv-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
+          <p data-start="0.0" data-end="0.4">♪ ༘⋆</p>
+		  <p data-start="0.5" data-end="5.0"><b>(함성~~~)</b><br /><b>(歡呼~~~)</b></p>
+		  <p data-start="6.8" data-end="10.0"><b>영케이! 강영현! 화! 이! 팅!</b><br /><b>永Ｋ伊! 康永晛! 花! 伊! 挺!</b></p>
+		  <p data-start="10.2" data-end="12.0"><b>(함성~~~)</b><br /><b>(歡呼~~~)</b></p>
+		  <p data-start="13.2" data-end="16.0">또 시작이야 또 날 못 잡아먹어서<br />豆 西加伊呀 豆 那 莫 甲巴摸給搜</p>
+		  <p data-start="16.1" data-end="19.1">아주 안달 나 있어 대체 왜 (왜!)<br />阿朱 安達 拿依搜 得切 為 <b>(為!)</b></p>
+		  <p data-start="19.3" data-end="22.0">믿었던 친구들은 또 내 뒷담이나 하고<br />米豆登 親古登恩 豆 內 督淡那 哈勾</p>
+		  <p data-start="22.2" data-end="25.5">진심은 통한다는데 대체 왜<br />金心恩 通韓達嫩得 得切 為 <b>(為!)</b></p>
+		  <p data-start="25.7" data-end="32.0">다가온다 <b>외로움이 </b>지친다 <b>사람들이</b><br />達嘎翁達 <b>為囉烏咪 </b>基親達 <b>撒郎德里</b></p>
+		  <p data-start="32.2" data-end="38.0">터덜<b>터덜 </b>고갤 <b>떨궈 </b>힘없이 집문을 열어<br />投抖 <b>投抖 </b>勾給 <b>抖郭 </b>希某西 金姆嫩 優囉</p>
+		  <p data-start="38.2" data-end="40.4">So I <b>shut the door</b></p>
+		  <p data-start="40.6" data-end="43.3">뛰어들어 내 침대 속으로<br />堆喔德囉 內 親得 搜可囉</p>
+		  <p data-start="44.1" data-end="47.4">눈물로 젖어가는 <b>my pillow</b><br />嫩姆囉 遮喔嘎嫩 <b>my pillow</b></p>
+		  <p data-start="47.4" data-end="50.4">빨리 날 꿈속에 데려가 줘<br />巴里 那 空搜給 得留嘎 啾</p>
+		  <p data-start="51.2" data-end="53.6">Yeah, so I <b>shut the door</b></p>
+		  <p data-start="53.7" data-end="56.0">눈과 귀 모두 닫아버리고<br />嫩瓜 貴 莫都 達阿波里勾</p>
+		  <p data-start="56.5" data-end="59.2">내 안의 음악을 더 <b>turn it up</b><br />內 安內 嗯嘛格 都 <b>turn it up</b></p>
+		  <p data-start="59.4" data-end="61.8">And tell myself I'm alright</p>
+		  <p data-start="61.9" data-end="64.6">I'm gonna be alright</p>
+		  <p data-start="65.0" data-end="69.0">계속되는 배신 오르내리는 gossip<br />給搜得嫩 背信 喔勒內里嫩 gossip</p>
+		  <p data-start="69.5" data-end="71.2">I don't want to know</p>
+		  <p data-start="71.4" data-end="72.5">I don't want to hear</p>
+		  <p data-start="72.6" data-end="76.5">I don't want to be the one caught in it</p>
+		  <p data-start="76.6" data-end="82.6">밀려온다 <b>짜증이 </b>지겹다 <b>인간들이</b><br />米流翁達 <b>佳增伊 </b>基gyeop達 <b>印甘德里</b></p>
+		  <p data-start="83.0" data-end="89.2">한숨 <b>쉬며 </b>고갤 <b>떨궈 </b>겨우 문 고리를 잡아<br />韓蘇 <b>須謬</b> 勾給 <b>抖郭</b> gyeo烏 姆 勾里勒 甲巴</p>
+		  <p data-start="89.5" data-end="91.5">So I <b>shut the door</b></p>
+		  <p data-start="91.8" data-end="94.4">뛰어들어 내 침대 속으로<br />堆喔德囉 內 親得 搜可囉</p>
+		  <p data-start="95.3" data-end="97.5">눈물로 젖어가는 <b>my pillow</b><br />嫩姆囉 遮喔嘎嫩 <b>my pillow</b></p>
+		  <p data-start="98.5" data-end="100.5">빨리 날 꿈속에 데려가 줘<br />巴里 那 空搜給 得留嘎 啾</p>
+		  <p data-start="102.0" data-end="104.2">Yeah, so I <b>shut the door</b></p>
+		  <p data-start="104.5" data-end="107.4">눈과 귀 모두 닫아버리고<br />嫩瓜 貴 莫都 達阿波里勾</p>
+		  <p data-start="108.0" data-end="110.4">내 안의 음악을 더 <b>turn it up</b><br />內 安內 嗯嘛格 都 <b>turn it up </b></p>
+		  <p data-start="110.6" data-end="112.2">And tell myself I'm alright</p>
+		  <p data-start="112.5" data-end="115.0">I'm gonna be alright</p>
+		  <p data-start="115.5" data-end="120.6">Please 이게 마지막 눈물이길 아픔이길<br />Please 伊給 馬吉馬 嫩姆里ki 阿ㄆ嗯咪ki</p>
+		  <p data-start="121.2" data-end="123.2"><b>I don't want to cry no more</b></p>
+		  <p data-start="124.1" data-end="127.5">Not gonna let anyone hurt me anymore</p>
+		  <p data-start="128.4" data-end="129.8">So I <b>shut the door</b></p>
+		  <p data-start="130.5" data-end="133.2">억지로라도 웃어버리고<br />俄基囉拉多 烏搜巴里勾</p>
+		  <p data-start="133.7" data-end="136.4">빛이 스며드는 <b>my window</b><br />比奇 思謬得嫩 <b>my window</b></p>
+		  <p data-start="136.6" data-end="139.5">내 맘의 어둠을 걷어내 줘<br />內 馬美 喔頓ㄜ 格多內 揪</p>
+		  <p data-start="140.5" data-end="143.0">But now I <b>shut the door</b></p>
+		  <p data-start="143.2" data-end="146.0">눈과 귀 모두 닫아버리고<br />嫩瓜 gwi 莫都 達搭波里勾</p>
+		  <p data-start="146.2" data-end="149.4">내 안의 음악을 더 <b>turn it up</b><br />內 安內 嗯嘛格 都 <b>turn it up</b></p>
+		  <p data-start="149.6" data-end="150.0">And tell myself I'm alright</p>
+		  <p data-start="151.0" data-end="153.0">I'm gonna be alright</p>
+		  <p data-start="154.2" data-end="157.0"><b>Shut the door </b>(Ohhh-)</p>
+		  <p data-start="157.4" data-end="160.3"><b>Shut the door </b>(Oooohhh-)</p>
+		  <p data-start="160.5" data-end="163.2"><b>Shut the door </b>(Oooohhh-)</p>
+		  <p data-start="164.0" data-end="166.7">I'm gonna be alright</p>
+		  <p data-start="167.5" data-end="170.5"><b>(함성~~~)</b><br /><b>(歡呼~~~)</b></p>
+		  <p data-start="171.4" data-end="172.4"></p>
+		</div>
+      </div>
+    </div>-->
+  </div>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    const firebaseConfig = { apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", authDomain: "flareu-tw-translation.firebaseapp.com", databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "flareu-tw-translation", storageBucket: "flareu-tw-translation.firebasestorage.app", messagingSenderId: "753531558153", appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" };
+    const app = initializeApp(firebaseConfig);
+    window.db = getDatabase(app); window.fb_ref = ref; window.fb_onValue = onValue; window.fb_runTransaction = runTransaction; 
+  </script>
+
+	<script src="../../js/reaction-core.js"></script>
+	<script src="../js/std-script.js"></script>
+
+</body>
+</html>
