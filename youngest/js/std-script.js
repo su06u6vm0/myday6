@@ -1,7 +1,8 @@
-    // 影片資料 - 🌟 ID 必須跟上面的 HTML 一模一樣，影片才生得出來！
+    // 影片資料
     const videoData = {
         'tab-video1': { id: 'fQI52C2bj6w', player: null, subEl: 'subtitle-video1', container: 'player-container-video1' },
-        'tab-video2': { id: 'W9SBhNLTDVw', player: null, subEl: 'subtitle-video2', container: 'player-container-video2', interval: null }
+        'tab-video2': { id: 'W9SBhNLTDVw', player: null, subEl: 'subtitle-video2', container: 'player-container-video2', interval: null },
+        'tab-video3': { id: 'on2HSs_uXSw', player: null, subEl: 'subtitle-video3', container: 'player-container-video3' }
     };
 
     function updateButtonUI(theme) {
@@ -68,6 +69,10 @@
                       syncLyricsWithVideo(event.target,"stdmv-lyrics");
                       bindLyricsInteraction(event.target,"stdmv-lyrics");
                   }
+                  if(tabId==="tab-video3"){
+                      syncLyricsWithVideo(event.target,"notbut-lyrics");
+                      bindLyricsInteraction(event.target,"notbut-lyrics");
+                  }
               }
           }
         });
@@ -125,7 +130,7 @@
   }
 
     // =====================================
-    // 🌟 全螢幕與偽全螢幕邏輯 (完全移植)
+    // 🌟 全螢幕與偽全螢幕邏輯
     // =====================================
     function triggerFullscreen(wrapperId) {
         const wrapper = document.getElementById(wrapperId);
@@ -230,7 +235,7 @@
     // 歌詞字體大小調整與說明
     //======================================================
     function showInstruction() {
-      alert("💡如果頻繁切換影片可能會導致動態歌詞字幕無法顯示，如有出現該狀況再麻煩重新整理！\n");
+      alert("💡小提醒：頻繁切換影片可能造成動態歌詞無法正常同步顯示，若遇到此情況，請重新整理頁面即可！");
     }
 
     //歌詞字體大小調整
