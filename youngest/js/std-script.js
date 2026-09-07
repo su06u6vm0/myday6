@@ -1,8 +1,7 @@
     // 影片資料
     const videoData = {
         'tab-video1': { id: 'fQI52C2bj6w', player: null, subEl: 'subtitle-video1', container: 'player-container-video1' },
-        'tab-video2': { id: 'W9SBhNLTDVw', player: null, subEl: 'subtitle-video2', container: 'player-container-video2', interval: null },
-        'tab-video3': { id: 'on2HSs_uXSw', player: null, subEl: 'subtitle-video3', container: 'player-container-video3' }
+        'tab-video2': { id: 'W9SBhNLTDVw', player: null, subEl: 'subtitle-video2', container: 'player-container-video2', interval: null }
     };
 
     function updateButtonUI(theme) {
@@ -68,10 +67,6 @@
                   if(tabId==="tab-video2"){
                       syncLyricsWithVideo(event.target,"stdmv-lyrics");
                       bindLyricsInteraction(event.target,"stdmv-lyrics");
-                  }
-                  if(tabId==="tab-video3"){
-                      syncLyricsWithVideo(event.target,"notbut-lyrics");
-                      bindLyricsInteraction(event.target,"notbut-lyrics");
                   }
               }
           }
