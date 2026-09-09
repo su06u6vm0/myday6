@@ -2,6 +2,30 @@
 const videos = [
 
 {
+title:"후배 Young K | [ ] 우영 EP.01",
+category:"訪談",
+date:"2026.09.09",
+videoId:"Yc68clF30-k",
+description:"장우영이"
+},
+
+{
+title:"영케이에게 대운을 가져다줄 ‘불의 기운’의 정체는?🔥",
+category:"訪談",
+date:"2026.09.09",
+videoId:"Aibm9wIY2qA",
+description:"COSMOPOLITAN Korea"
+},
+
+{
+title:"Young K Solo Tour ＜YOUNGEST＞ Concert Behind #2",
+category:"幕後花絮",
+date:"2026.09.06",
+videoId:"3J1diKFzBGM",
+description:"Concert Behind"
+},
+
+{
 title:"[#간식게임] 갑분 연기 챌린지..? 수상할 정도로 연기에 진심인 도레미들🎬 #highlight #유료광고포함#놀라운토요일 | amazingsaturday EP.432",
 category:"綜藝節目",
 date:"2026.08.29",
