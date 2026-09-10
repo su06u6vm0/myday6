@@ -34,7 +34,7 @@ function openTab(tabId, btnElement) {
 
 // 安全載入 YouTube 播放器
 window.onYouTubeIframeAPIReady = function() {
-    // API 準備好時，不做任何事，等到讀者點擊頁籤才觸發 initVideo
+    initVideo('tab-video1');
 };
 
 function initVideo(tabId) {
@@ -213,9 +213,18 @@ document.addEventListener('touchstart', (e) => {
 }, { passive: true, capture: true });
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateButtonUI(localStorage.getItem('pageTheme') || 'light');
+    // 套用主題
+    updateButtonUI(localStorage.getItem('pageTheme') || 'light');
 
-  initVideo('tab-video1');
+    // 自動顯示第一個影片畫面
+    const firstTab = document.getElementById('tab-video1');
+
+    if (firstTab) {
+        firstTab.classList.add('active');
+    }
+
+    // 自動建立 YouTube 播放器
+    initVideo('tab-video1');
 });
 
 //======================================================
