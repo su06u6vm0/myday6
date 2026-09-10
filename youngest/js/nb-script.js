@@ -216,13 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 套用主題
     updateButtonUI(localStorage.getItem('pageTheme') || 'light');
 
-    // 自動顯示第一個影片畫面
-    const firstTab = document.getElementById('tab-video1');
-
-    if (firstTab) {
-        firstTab.classList.add('active');
-    }
-
     // 自動建立 YouTube 播放器
     initVideo('tab-video1');
 });
