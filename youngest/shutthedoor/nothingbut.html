@@ -34,7 +34,7 @@
 		<!-- 右側功能區 -->
 		<div class="menu-container">
 			<!-- 首頁按鈕 -->
-			<a href="../index.html" class="home-btn" aria-label="首頁">
+			<a href="../" class="home-btn" aria-label="首頁">
 				<!-- 首頁 SVG 圖示 -->
 				<svg viewBox="0 0 24 24" fill="none">
 					<path d="M3 11L12 3L21 11V21H14V15H10V21H3V11Z"
@@ -79,12 +79,10 @@
 		</div>
 	</div>
 	
-	<!--<h1 style="margin-bottom: 15px;">《이것밖에는 없다》 歌詞應援</h1>-->
-	<h1>《이것밖에는 없다》 歌詞應援</h1>
+	<h1 style="margin-bottom: 15px;">《이것밖에는 없다》 歌詞應援</h1>
+	<!--<h1>《이것밖에는 없다》 歌詞應援</h1>-->
 	
       <div class="tabs-container">
-       <!-- <button class="tab-btn" onclick="openTab('tab-video1', this)">nothing but</button>
-        <button class="tab-btn" onclick="openTab('tab-video2', this)">M/V</button>-->
       </div>
 	  
     </header>
@@ -110,15 +108,15 @@
         </div>
         <div id="stdsa-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
           <p data-start="0.0" data-end="7.0">♪ ༘⋆</p>
-		  <p data-start="7.5" data-end="11.0"><b>영! 케! 이! 밖! 에! 는! 없! 다!</b><br /><b>永! Ｋ! 伊! 巴! 欸! 嫩! 歐! 達!</b></p>
-		  <p data-start="12.0" data-end="14.5">끝까지 안아 줄게라는<br />跟嘎吉 安那 朱給拉嫩</p>
+		  <p data-start="7.2" data-end="11.0"><b>영! 케! 이! 밖! 에! 는! 없! 다!</b><br /><b>永! Ｋ! 伊! 巴! 欸! 嫩! 歐! 達!</b></p>
+		  <p data-start="11.9" data-end="14.8">끝까지 안아 줄게라는<br />跟嘎吉 安那 朱給拉嫩</p>
 		  <p data-start="15.2" data-end="17.5">말이 무색하게 <br />馬里 木塞卡給</p>
 		  <p data-start="18.5" data-end="21.5">내 품 안에서 너는<br />內 普 曼內搜 諾嫩</p>
-		  <p data-start="22.2" data-end="24.0">흐느끼고 있네<br />呵呢ki勾 因內</p>
+		  <p data-start="21.9" data-end="24.3">흐느끼고 있네<br />呵呢ki勾 因內</p>
 		  <p data-start="24.5" data-end="27.5"><b>괜찮아 진짜 괜찮아</b><br /><b>肯掐拿 金價 肯掐拿</b></p>
-		  <p data-start="28.2" data-end="30.5"><b>우리 이러지 말자</b><br /><b>嗚里 一羅吉 馬加</b></p>
-		  <p data-start="31.2" data-end="36.0">버터 보려고 했지만<br />波偷 波里勾 黑吉滿</p>
-		  <p data-start="36.2" data-end="39.0"><b>사실은 느끼고 있었어</b><br /><b>沙西冷 嫩ki勾 一索索</b></p>
+		  <p data-start="27.9" data-end="30.8"><b>우리 이러지 말자</b><br /><b>嗚里 一羅吉 馬加</b></p>
+		  <p data-start="31.1" data-end="36.0">버터 보려고 했지만<br />波偷 波里勾 黑吉滿</p>
+		  <p data-start="36.2" data-end="39.5"><b>사실은 느끼고 있었어</b><br /><b>沙西冷 嫩ki勾 一索索</b></p>
 		  <p data-start="40.2" data-end="42.4">이별의 시작을<br />一別雷 西加格</p>
 		  <p data-start="43.0" data-end="45.3"><b>점점 가까워졌어</b><br /><b>宗宗 嘎卡沃救搜</b></p>
 		  <p data-start="46.3" data-end="48.4">돌릴 수 없는 끝 <br />豆里 蘇 偶嫩 根</p>
@@ -170,15 +168,6 @@
 
   <script async src="//www.instagram.com/embed.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-    const firebaseConfig = { apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", authDomain: "flareu-tw-translation.firebaseapp.com", databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "flareu-tw-translation", storageBucket: "flareu-tw-translation.firebasestorage.app", messagingSenderId: "753531558153", appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" };
-    const app = initializeApp(firebaseConfig);
-    window.db = getDatabase(app); window.fb_ref = ref; window.fb_onValue = onValue; window.fb_runTransaction = runTransaction; 
-  </script>
-
   <script src="../js/nb-script.js"></script>
 
 </body>
