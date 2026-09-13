@@ -630,12 +630,6 @@
 		height: auto;
 	}
 	
-	.menu-section-title {
-		font-size: 13px;
-		color: #888;
-		padding: 8px 5px 5px;
-	}
-
 	.menu-link {
 		display: block;
 		padding: 10px 12px;
@@ -661,19 +655,44 @@
 	}
 
 	/* 下拉式選單 */
-	.song-menu-title {
+	.menu-section-title.song-menu-title {
 		display: flex !important;
 		justify-content: flex-start !important;
 		align-items: center;
 		text-align: left !important;
-		gap: 8px;
+		font-size: 15px;
+		color: #888;
+		padding: 8px 5px 5px 10px;
+		gap: 5px;
 		cursor: pointer;
 		user-select: none;
 	}
 
+	.menu-section-title.song-menu-title span {
+		margin: 0;
+	}
+	
 	#song-menu-arrow {
 		font-size: 12px;
 		transition: transform 0.2s ease;
+	}
+	
+	.song-menu-title {
+		display: flex !important;
+		flex-direction: row !important;
+		justify-content: flex-start !important;
+		align-items: center !important;
+
+		width: 100% !important;
+		box-sizing: border-box !important;
+
+		text-align: left !important;
+		margin: 0 !important;
+		padding: 8px 0 5px 10px !important;
+
+		gap: 5px !important;
+		cursor: pointer;
+		user-select: none;
 	}
 
 	.song-menu-list {
