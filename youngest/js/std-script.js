@@ -472,3 +472,17 @@
 			dropdown.classList.remove('show');
 		}
 	});
+	
+	//歌曲下拉式選單
+	function toggleSongMenu() {
+		const songMenu = document.getElementById('songMenuList');
+		const arrow = document.getElementById('song-menu-arrow');
+
+		songMenu.classList.toggle('open');
+
+		if (songMenu.classList.contains('open')) {
+			arrow.textContent = '▲';
+		} else {
+			arrow.textContent = '▼';
+		}
+	}	
