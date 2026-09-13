@@ -51,7 +51,7 @@ function initVideo(tabId) {
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, // 絕對不偷播
+        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 },
         events:{
           onReady:function(event){
 
@@ -466,3 +466,17 @@ window.addEventListener('click', function(e) {
         dropdown.classList.remove('show');
     }
 });
+
+//歌曲下拉式選單
+function toggleSongMenu() {
+    const songMenu = document.getElementById('songMenuList');
+    const arrow = document.getElementById('song-menu-arrow');
+
+    songMenu.classList.toggle('open');
+
+    if (songMenu.classList.contains('open')) {
+        arrow.textContent = '▲';
+    } else {
+        arrow.textContent = '▼';
+    }
+}
