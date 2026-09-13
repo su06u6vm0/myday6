@@ -666,7 +666,7 @@
 	
 	/* 目前選取的頁面 */
 	.menu-current {
-		font-weight: 700;
+		font-weight: 500;
 		font-style: italic;
 		cursor: default;
 	}
@@ -682,7 +682,8 @@
 		align-items: center;
 		text-align: left !important;
 		font-size: 16px;
-		color: #888;
+		font-weight: 550;
+		color: #3F9F9A;
 		padding: 8px 5px 5px 10px;
 		gap: 5px;
 		cursor: pointer;
