@@ -51,7 +51,7 @@ function initVideo(tabId) {
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 },
+        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, // 絕對不偷播
         events:{
           onReady:function(event){
 
@@ -480,3 +480,34 @@ function toggleSongMenu() {
         arrow.textContent = '▼';
     }
 }
+
+//歌曲標題文字顯示在同一行
+function fitLyricsTitle() {
+    const title = document.querySelector('.lyrics-title');
+    const header = document.querySelector('.lyrics-header');
+    const controls = document.querySelector('.font-controls');
+
+    if (!title || !header || !controls) return;
+
+    const maxSize = 22;
+    const minSize = 12;
+
+    let size = maxSize;
+    title.style.fontSize = size + 'px';
+
+    const availableWidth =
+        header.clientWidth -
+        controls.offsetWidth -
+        12;
+
+    while (
+        title.scrollWidth > availableWidth &&
+        size > minSize
+    ) {
+        size -= 1;
+        title.style.fontSize = size + 'px';
+    }
+}
+
+window.addEventListener('load', fitLyricsTitle);
+window.addEventListener('resize', fitLyricsTitle);
