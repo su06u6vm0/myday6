@@ -523,7 +523,7 @@
         margin: 0; 
         color: #a7c4a7; 
         font-size: 22px;
-        letter-spacing: 1.5px; 
+        letter-spacing: 0.5px; 
         text-shadow: 0 0 10px rgba(149,213,178,0.2); 
         font-weight: 700;
 		white-space: nowrap;
@@ -681,7 +681,7 @@
 		justify-content: flex-start !important;
 		align-items: center;
 		text-align: left !important;
-		font-size: 15px;
+		font-size: 16px;
 		color: #888;
 		padding: 8px 5px 5px 10px;
 		gap: 5px;
