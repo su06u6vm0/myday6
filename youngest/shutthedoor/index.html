@@ -6,7 +6,7 @@
 	<link rel="apple-touch-icon" href="../images/icon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<title>Shut The Door歌詞應援</title>
-	<link rel="stylesheet" href="../../css/reaction.css">
+	<!--<link rel="stylesheet" href="../../css/reaction.css">-->
 	<link rel="stylesheet" href="../css/style.css">
 
 	<!--讀取使用者之前選的主題-->
@@ -72,9 +72,20 @@
 			</button>
 			<!-- 點擊後展開的功能選單內容 -->
 			<div class="controls-dropdown" id="controlsDropdown">
+				<!-- 顯示主題 -->
 				<div class="theme-toggle-group">
 					<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
 					<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+				</div>
+			    <!-- 其他歌曲 -->
+				<div class="menu-section-title song-menu-title" onclick="toggleSongMenu()">
+					<span>🎵 YOUNGEST歌曲 </span>
+					<span id="song-menu-arrow">▼</span>
+				</div>
+
+				<div class="song-menu-list" id="songMenuList">
+					<div class="menu-link menu-current">Shut The Door</div>
+					<a href="nothingbut.html" class="menu-link">nothing but</a>
 				</div>
 			</div>
 		</div>
@@ -242,16 +253,16 @@
     </div>
   </div>
 
-  <script async src="//www.instagram.com/embed.js"></script>
+  <!--<script async src="//www.instagram.com/embed.js"></script>-->
   <script src="https://www.youtube.com/iframe_api"></script>
   
-  <script type="module">
+  <!--<script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
     const firebaseConfig = { apiKey: "AIzaSyAs9R785IE_kBsduUdEng3Vfqz1Ljl11f4", authDomain: "flareu-tw-translation.firebaseapp.com", databaseURL: "https://flareu-tw-translation-default-rtdb.asia-southeast1.firebasedatabase.app", projectId: "flareu-tw-translation", storageBucket: "flareu-tw-translation.firebasestorage.app", messagingSenderId: "753531558153", appId: "1:753531558153:web:7106f9c2d253cae62fdbd8" };
     const app = initializeApp(firebaseConfig);
     window.db = getDatabase(app); window.fb_ref = ref; window.fb_onValue = onValue; window.fb_runTransaction = runTransaction; 
-  </script>
+  </script>-->
 
 	<script src="../../js/reaction-core.js"></script>
 	<script src="../js/std-script.js"></script>
