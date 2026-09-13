@@ -75,7 +75,11 @@
 		color: var(--text-main); 
 		line-height: 1.4; 
 	}
-
+	
+	.lyrics-page-title {
+		margin-bottom: 15px !important;
+	}
+	
     .controls-wrapper { 
 		display: flex; gap: 12px; 
 		align-items: center; 
