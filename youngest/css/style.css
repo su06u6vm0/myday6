@@ -466,14 +466,32 @@
           line-height: 1.8;
           box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
+	.lyrics-header {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		width: 100%;
+		margin-bottom: 15px;
+	}
     .lyrics-title{
         text-align: center; 
         margin: 0; 
         color: #235249; 
-        font-size: clamp(16px, 3.5vw, 24px);
+        font-size: 22px;
         font-weight: 700; 
         letter-spacing: 0.5px;
+		white-space: nowrap;
+		min-width: 0;
+		flex-shrink: 1;
     }
+	
+	.font-controls {
+		display: flex;
+		gap: 8px;
+		flex-shrink: 0;
+	}
     .font-btn{
         padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px); 
         border: 1px solid #99c2bc; 
@@ -490,24 +508,27 @@
     /* 深色 */
     [data-theme="dark"] #stdsa-container,
     [data-theme="dark"] #stdmv-container{
-          background: linear-gradient(135deg, #1a1515 0%, #121010 100%);
-          color: #e5dbdb; 
-          padding: 25px;
-           margin-top: 20px;
-          border-radius: 16px;
-          border: 1px solid #3d403d;
-          font-family: sans-serif;
-          line-height: 1.8;
-          box-shadow: 0 4px 25px rgba(229, 57, 53, 0.08);
+		background: linear-gradient(135deg, #1a1515 0%, #121010 100%);
+		color: #e5dbdb; 
+		padding: 25px;
+		margin-top: 20px;
+		border-radius: 16px;
+		border: 1px solid #3d403d;
+		font-family: sans-serif;
+		line-height: 1.8;
+		box-shadow: 0 4px 25px rgba(229, 57, 53, 0.08);
     }
     [data-theme="dark"] .lyrics-title{
         text-align: center; 
         margin: 0; 
         color: #a7c4a7; 
-        font-size: clamp(16px, 3.5vw, 24px);
+        font-size: 22px;
         letter-spacing: 1.5px; 
         text-shadow: 0 0 10px rgba(149,213,178,0.2); 
         font-weight: 700;
+		white-space: nowrap;
+		min-width: 0;
+		flex-shrink: 1;
     }
     [data-theme="dark"] .font-btn{
         padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 14px);
