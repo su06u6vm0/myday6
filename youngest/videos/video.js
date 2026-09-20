@@ -2,6 +2,110 @@
 const videos = [
 
 {
+title:"[#간식게임] 해피 추석을 맞아 더욱 길어진 퍼포 타임🪩 빼놓을 수 없는 특별 선물 라운드까지🎁 #highlight#놀라운토요일 | amazingsaturday EP.435",
+category:"綜藝節目",
+date:"2026.09.19",
+videoId:"ESxhOF7rOGI",
+description:"驚人的星期六"
+},
+
+{
+title:"음악만 나오면 다른 사람이 되는 은광💥 에너지 영끌한 은광(光)의 하프 타임 쇼🎉#놀라운토요일 | amazingsaturday EP.435 | tvN 260919 방송",
+category:"綜藝節目",
+date:"2026.09.19",
+videoId:"tVqX-fW0SkE",
+description:"驚人的星期六"
+},
+
+{
+title:"[SUB] May I Be Happy?🩵 대성이 형 집 좀 쓸게🤟 | 빈집대성 ep.1 DAY6 (Young K, 원필)",
+category:"訪談",
+date:"2026.09.18",
+videoId:"3BzIN5LeqbM",
+description:"집대성"
+},
+
+{
+title:"\'못 하게떠여..ㅠㅜ\' 게임하다 장화 신은 고양이 된 유승호🥺 #틈만나면 #유재석 #유연석",
+category:"綜藝節目",
+date:"2026.09.18",
+videoId:"7y-DEQFWtxY",
+description:"틈만나면"
+},
+
+{
+title:"현 남친이 유승호면 전 남친 결혼식 간다? 안 간다? #틈만나면 #유재석 #유연석",
+category:"綜藝節目",
+date:"2026.09.16",
+videoId:"uAR_c727puc",
+description:"틈만나면"
+},
+
+{
+title:"[#간식게임] 도레미들을 뒤집어놓은 ‘빠밤’의 정체는?!🔊 찐친들과 함께한 ‘끝이라면’ 퀴즈✨ #highlight#놀라운토요일 | amazingsaturday EP.434",
+category:"綜藝節目",
+date:"2026.09.15",
+videoId:"vQFlL7mdDZA",
+description:"틈만나면"
+},
+
+{
+title:"[#간식게임] 도레미들을 뒤집어놓은 ‘빠밤’의 정체는?!🔊 찐친들과 함께한 ‘끝이라면’ 퀴즈✨ #highlight#놀라운토요일 | amazingsaturday EP.434",
+category:"綜藝節目",
+date:"2026.09.12",
+videoId:"VtxG3r9FeEg",
+description:"驚人的星期六"
+},
+
+{
+title:"사실 데이식스는 유명한 댄스 그룹임(?)🕺 영케이X원필이 알려주는 ★JYP 기본 안무★#놀라운토요일 | amazingsaturday EP.434 | tvN 260912 방송",
+category:"綜藝節目",
+date:"2026.09.12",
+videoId:"sttBNnmKObY",
+description:"驚人的星期六"
+},
+
+{
+title:"놀토에 〈배드〉가 떴다💥 유일한 챌린지 경험자 원필의 족집게 안무 과외까지🔥#놀라운토요일 | amazingsaturday EP.434 | tvN 260912 방송",
+category:"綜藝節目",
+date:"2026.09.12",
+videoId:"WoEFivHSNsQ",
+description:"驚人的星期六"
+},
+
+{
+title:"입술이 닿을락말라을라 | 영케이와 한강 라이딩 다녀왔습니다🚴[EP.461]",
+category:"訪談",
+date:"2026.09.11",
+videoId:"vd44Z-aKeUM",
+description:"자이언트 펭TV"
+},
+
+{
+title:"[선공개] 급이 다른 규카츠의 먹방✨ 디저트 먹을 때도 성대모사 말아주는 헤비급 재능 규원😆#놀라운토요일 | amazingsaturday EP.434",
+category:"綜藝節目",
+date:"2026.09.11",
+videoId:"vZUypESHGh0",
+description:"驚人的星期六"
+},
+
+{
+title:"[선공개] 제가 보지 말아야 할 것을 봐버렸어요...👩‍🦲 열일하는 민케이 보고 충격이 컸던 원필🤣#놀라운토요일 | amazingsaturday EP.434",
+category:"綜藝節目",
+date:"2026.09.11",
+videoId:"ZeRBYO8bTFA",
+description:"驚人的星期六"
+},
+
+{
+title:"타미 힐피거 2027 봄 컬렉션 참석을 앞두고, “TOMMY”를 찾아 나선 영케이의 여정 (TOMMY HILFIGER, Young K, DAY6, 타미 힐피거, 영케이, 데이식스)",
+category:"訪談",
+date:"2026.09.11",
+videoId:"kDjMjSFMoRU",
+description:"GQ KOREA"
+},
+
+{
 title:"후배 Young K | [ ] 우영 EP.01",
 category:"訪談",
 date:"2026.09.09",
