@@ -481,6 +481,26 @@ function toggleSongMenu() {
     }
 }
 
+// 點擊畫面其他空白處時自動收合選單
+document.addEventListener('click', function(e) {
+    const container = document.querySelector('.menu-container');
+    const dropdown = document.getElementById('controlsDropdown');
+    const songMenu = document.getElementById('songMenuList');
+    const arrow = document.getElementById('song-menu-arrow');
+
+    if (!container || !dropdown) return;
+
+    // 點擊功能選單整體範圍內，不收合
+    if (container.contains(e.target)) return;
+
+    // 點擊外部時，收合整個功能選單
+    dropdown.classList.remove('show');
+
+    // 同時收合歌曲子選單
+    // if (songMenu) songMenu.classList.remove('open');
+    // if (arrow) arrow.textContent = '▼';
+});
+
 //按照文字長度自動計算，歌曲標題文字顯示在同一行
 function fitLyricsTitle() {
     const title = document.querySelector('.lyrics-title');
