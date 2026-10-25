@@ -2,6 +2,182 @@
 const videos = [
 
 {
+title:"[데식이들] Young K x 2026 동국대학교 가을 대동제 ＜DIRVANA＞ 비하인드",
+category:"幕後花絮",
+date:"2026.10.14",
+videoId:"MHEGF8qRy1o",
+description:"Behind"
+},
+
+{
+title:"잘 먹고 잘 부르고 잘 만드는 본업 천재 Young K✨윤주당 털러 왔습니다🫡 | 해방토크 EP.26",
+category:"訪談",
+date:"2026.10.09",
+videoId:"_4aJQzvPIpc",
+description:"술 빚는 윤주모"
+},
+
+{
+title:"밤참모임 with. 스페셜 DJ DAY6 Young K | [한해의 키스 더 라디오] I KBS 261008 방송",
+category:"電台/廣播",
+date:"2026.10.08",
+videoId:"u1ONM8SbVV8",
+description:"韓海的 Kiss the Radio"
+},
+
+{
+title:"[DAY6 VLOG] 강영현 브이로그 in 미국 | NYC 접수 완료 🐱🐾",
+category:"幕後花絮",
+date:"2026.10.08",
+videoId:"NULtQbxwmWA",
+description:"DAY6 VLOG"
+},
+
+{
+title:"해주세영~케이🦊 with 스페셜 DJ DAY6 Young K (영케이) | [한해의 키스 더 라디오] I KBS 261007 방송",
+category:"直播",
+date:"2026.10.07",
+videoId:"jTcWDnzUuA4",
+description:"韓海的 Kiss the Radio"
+},
+
+{
+title:"[#간식게임] 개그 천재들의 자존심을 건 웃음 대결🤣 와중에 불안해진 찐 희극인들💦 #highlight #유료광고포함#놀라운토요일 | amazingsaturday EP.436",
+category:"綜藝節目",
+date:"2026.10.03",
+videoId:"KAopafbtLEs",
+description:"驚人的星期六"
+},
+
+{
+title:"[ENG SUB] “결과 말고, 노력해 온 나를 믿으세요.” 아이들의 고민에 답한 DAY6 Young K ㅣ 미래면접관 EP.12",
+category:"訪談",
+date:"2026.10.02",
+videoId:"XrwnGDJtbRM",
+description:"유니세프"
+},
+
+{
+title:"[LIVE] Goodbye, Love｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.10.01",
+videoId:"MNWcaKQEu64",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] Shut The Door｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.10.01",
+videoId:"iqpvTEd6flI",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] STRANGE + SPIKE｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.10.01",
+videoId:"QUWoT4v0L6o",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] whatever｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.10.01",
+videoId:"kSIRXDOddqE",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] 집으로 향한다｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.30",
+videoId:"tK2BZTbjlBQ",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] 베스트 송｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.30",
+videoId:"rB1vPiMFxjo",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] 응원가｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.30",
+videoId:"1pPc-PUjO3Q",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] natural｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.29",
+videoId:"j4Eyxn1uN0Q",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] what is..｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.29",
+videoId:"ATkX8a7Vq0g",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] Yonge St.｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.29",
+videoId:"V_mKqRmQZV8",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[데식이들] Young K x 사운드 플래닛 페스티벌 2026 비하인드",
+category:"幕後花絮",
+date:"2026.09.29",
+videoId:"PzPLQBnlTXw",
+description:"2026 Sound Planet Festival Behind"
+},
+
+{
+title:"[LIVE] F world｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.28",
+videoId:"fsHh9-jCSqM",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] Drivin′ into Hell｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.28",
+videoId:"osXbq8zESW0",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[LIVE] Marionette｜Young K Solo Tour ＜YOUNGEST＞",
+category:"Live 演唱",
+date:"2026.09.28",
+videoId:"XhXDyz_X70c",
+description:"Young K Solo Tour ＜YOUNGEST＞"
+},
+
+{
+title:"[DAY6 VLOG] 강영현 브이로그 in 상하이 | 왕홍 케이 상하이에 등장 ₊*ෆ🐱ෆ*₊",
+category:"幕後花絮",
+date:"2026.09.24",
+videoId:"0qJhdPUM9H0",
+description:"DAY6 VLOG"
+},
+
+{
 title:"[#간식게임] 해피 추석을 맞아 더욱 길어진 퍼포 타임🪩 빼놓을 수 없는 특별 선물 라운드까지🎁 #highlight#놀라운토요일 | amazingsaturday EP.435",
 category:"綜藝節目",
 date:"2026.09.19",
