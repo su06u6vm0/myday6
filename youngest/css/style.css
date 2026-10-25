@@ -718,7 +718,7 @@
 	}
 
 	.song-menu-list {
-    width: 100%;
+		width: 100%;
 		text-align: left !important;
 		display: none;
 	}
@@ -728,9 +728,11 @@
 	}
 
 	.song-menu-list .menu-link {
-		    display: block;
-    width: 100%;
+		display: block;
+		width: 100%;
 		text-align: left !important;	/*歌曲選單靠左對齊*/
+		box-sizing: border-box;
+		margin-right: 5px;
 	}
 	
 	.menu-current {
