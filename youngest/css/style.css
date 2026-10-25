@@ -613,7 +613,7 @@
 		top: 45px;	 			/* 出現在按鈕下方 */
 		right: 0;
 		background-color: var(--theme-btn-bg); 
-		width: 180px;        	/* 選單整體寬度 */
+		width: 200px;        	/* 選單整體寬度 */
 		/*background: var(--card-bg, rgba(255, 255, 255, 0.9));*/
 		border: 1px solid var(--card-border, #C3D9F0);
 		backdrop-filter: blur(15px);
