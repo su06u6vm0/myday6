@@ -1,7 +1,14 @@
 // 影片資料
-const videoData = {
-    'tab-video1': { id: 'tLcynwlNh38', player: null, subEl: 'subtitle-video1', container: 'player-container-video1' }
-};
+const videoData = {};
+
+document.querySelectorAll('[data-video-id]').forEach(tab => {
+    videoData[tab.id] = {
+        id: tab.dataset.videoId,
+        player: null,
+        subEl: tab.dataset.subtitle,
+        container: tab.dataset.container
+    };
+});
 
 function updateButtonUI(theme) {
   document.getElementById('btn-light').classList.remove('active');
