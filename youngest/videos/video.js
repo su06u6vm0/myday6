@@ -2,6 +2,30 @@
 const videos = [
 
 {
+title:"[DAY6 VLOG] 강영현 브이로그 in 타이베이 | (딤섬 먹기엔) 하루가 짧다 🥢",
+category:"幕後花絮",
+date:"2026.10.30",
+videoId:"8THL9I375ok",
+description:"DAY6 VLOG"
+},
+
+{
+title:"💙미방분 포함💙 고기 8판에 국수 4판까지?!💦 대식가들이 보여주는 식사의 품격 | 슈퍼맨이 돌아왔다 KBS 261028 방송",
+category:"綜藝節目",
+date:"2026.10.29",
+videoId:"i67gi5TfxFM",
+description:"超人回來了"
+},
+
+{
+title:"'뽀뽀까지~?' 하루 마음에 쏙 들어온 데이식스 영케이😍 #슈퍼맨이돌아왔다ㅣKBS 261028 방송",
+category:"綜藝節目",
+date:"2026.10.29",
+videoId:"dCR4xbu3KJg",
+description:"超人回來了"
+},
+
+{
 title:"[데식이들] Young K x 2026 동국대학교 가을 대동제 ＜DIRVANA＞ 비하인드",
 category:"幕後花絮",
 date:"2026.10.14",
