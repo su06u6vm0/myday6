@@ -476,17 +476,36 @@ window.addEventListener('click', function(e) {
 
 //歌曲下拉式選單
 function toggleSongMenu() {
-    const songMenu = document.getElementById('songMenuList');
-    const arrow = document.getElementById('song-menu-arrow');
+    const menu = document.getElementById("songMenuList");
+    const arrow = document.getElementById("song-menu-arrow");
 
-    songMenu.classList.toggle('open');
+    const isOpen = menu.style.display === "block";
 
-    if (songMenu.classList.contains('open')) {
-        arrow.textContent = '▲';
+    if (isOpen) {
+        menu.style.display = "none";
+        arrow.textContent = "▼";
+        localStorage.setItem("songMenuOpen", "false");
     } else {
-        arrow.textContent = '▼';
+        menu.style.display = "block";
+        arrow.textContent = "▲";
+        localStorage.setItem("songMenuOpen", "true");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menu = document.getElementById("songMenuList");
+    const arrow = document.getElementById("song-menu-arrow");
+
+    const isOpen = localStorage.getItem("songMenuOpen");
+
+    if (isOpen === "true") {
+        menu.style.display = "block";
+        arrow.textContent = "▲";
+    } else {
+        menu.style.display = "none";
+        arrow.textContent = "▼";
+    }
+});
 
 // 點擊畫面其他空白處時自動收合選單
 document.addEventListener('click', function(e) {
