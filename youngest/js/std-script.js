@@ -475,18 +475,72 @@
 	
 	//歌曲下拉式選單
 	function toggleSongMenu() {
+		const menu = document.getElementById("songMenuList");
+		const arrow = document.getElementById("song-menu-arrow");
+
+		const isOpen = menu.style.display === "block";
+
+		if (isOpen) {
+			menu.style.display = "none";
+			arrow.textContent = "▼";
+			localStorage.setItem("songMenuOpen", "false");
+		} else {
+			menu.style.display = "block";
+			arrow.textContent = "▲";
+			localStorage.setItem("songMenuOpen", "true");
+		}
+	}	
+
+	document.addEventListener("DOMContentLoaded", function () {
+		const menu = document.getElementById("songMenuList");
+		const arrow = document.getElementById("song-menu-arrow");
+
+		const isOpen = localStorage.getItem("songMenuOpen");
+
+		if (isOpen === "true") {
+			menu.style.display = "block";
+			arrow.textContent = "▲";
+		} else {
+			menu.style.display = "none";
+			arrow.textContent = "▼";
+		}
+	});
+
+	// 點擊選單外部時收合
+	document.addEventListener('click', function (event) {
+		const songMenu = document.getElementById('songMenuList');
+		const songTitle = document.querySelector('.song-menu-title');
+		const arrow = document.getElementById('song-menu-arrow');
+
+		if (
+			!songMenu.contains(event.target) &&
+			!songTitle.contains(event.target)
+		) {
+			songMenu.classList.remove('open');
+			arrow.textContent = '▼';
+		}
+	});
+
+	// 點擊畫面其他空白處時自動收合選單
+	document.addEventListener('click', function(e) {
+		const container = document.querySelector('.menu-container');
+		const dropdown = document.getElementById('controlsDropdown');
 		const songMenu = document.getElementById('songMenuList');
 		const arrow = document.getElementById('song-menu-arrow');
 
-		songMenu.classList.toggle('open');
+		if (!container || !dropdown) return;
 
-		if (songMenu.classList.contains('open')) {
-			arrow.textContent = '▲';
-		} else {
-			arrow.textContent = '▼';
-		}
-	}	
-	
+		// 點擊功能選單整體範圍內，不收合
+		if (container.contains(e.target)) return;
+
+		// 點擊外部時，收合整個功能選單
+		dropdown.classList.remove('show');
+
+		// 同時收合歌曲子選單
+		// if (songMenu) songMenu.classList.remove('open');
+		// if (arrow) arrow.textContent = '▼';
+	});
+
 	//按照文字長度自動計算，歌曲標題文字顯示在同一行
 	function fitLyricsTitle() {
 		const title = document.querySelector('.lyrics-title');
