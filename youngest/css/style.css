@@ -635,6 +635,15 @@
 		transform: translateY(0);
 	}
 
+	/*滾動選單*/
+	.controls-dropdown {
+		max-height: 70vh;					/*高度為螢幕高度的 70%*/
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch; 	/* 平滑滾動 */
+		scrollbar-width: thin; 				/* Firefox 捲軸樣式 */
+	}
+
 	/* 內部按鈕微調 */
 	.controls-wrapper {
 		display: flex;
