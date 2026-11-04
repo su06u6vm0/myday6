@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../images/icon.png" type="image/png">
+	<link rel="apple-touch-icon" href="../images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>million reasons</title>
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!--讀取使用者之前選的主題，把主題設定到 <html>-->
+	<script>
+		const savedTheme = localStorage.getItem('pageTheme') || 'light';
+		document.documentElement.setAttribute('data-theme', savedTheme);	
+		window.MY_VIDEO_ID = "ShutTheDoor_Singalong";
+	</script>
+	<!--<script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>-->
+	<style>
+		#stdsa-lyrics p, #stdmv-lyrics p{
+			opacity: 0.8;
+		}
+		[data-theme="dark"] #stdsa-lyrics p, 
+		[data-theme="dark"] #stdmv-lyrics p{
+			opacity: 0.5;
+		}
+	</style>
+  </head>
+<body>
+
+  <div class="content-wrapper">
+    <header class="header">
+    <div class="header-top">
+		<!-- 左側標題 -->
+        <div class="site-title">
+            YOUNGEST
+        </div>
+		
+	    <!-- 中間延伸線 -->
+		<div class="header-line"></div>	
+		
+		<!-- 右側功能區 -->
+		<div class="menu-container">
+			<!-- 首頁按鈕 -->
+			<a href="../" class="home-btn" aria-label="首頁">
+				<!-- 首頁 SVG 圖示 -->
+				<svg viewBox="0 0 24 24" fill="none">
+					<path d="M3 11L12 3L21 11V21H14V15H10V21H3V11Z"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linejoin="round"
+						  stroke-linecap="round"/>
+				</svg>
+			</a>
+
+			<!-- 說明按鈕 -->
+			<button class="home-btn" onclick="showInstruction()" aria-label="使用說明">
+				<svg viewBox="0 0 24 24" fill="none">
+					<circle cx="12" cy="12" r="9"
+							stroke="currentColor"
+							stroke-width="2"/>
+					<path d="M12 10V17"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+					<circle cx="12" cy="7" r="1"
+							fill="currentColor"/>
+				</svg>
+			</button>
+
+			<!-- 收合選單按鈕 -->
+			<button class="menu-toggle-btn"  onclick="toggleMenu()" aria-label="功能選單">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+					<path d="M3 6h18M3 12h18M3 18h18"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+				</svg>
+			</button>
+			<!-- 點擊後展開的功能選單內容 -->
+			<div class="controls-dropdown" id="controlsDropdown">
+				<!-- 顯示主題 -->
+				<div class="theme-toggle-group">
+					<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+					<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+				</div>
+			    <!-- 其他歌曲 -->
+				<div class="menu-section-title song-menu-title" onclick="toggleSongMenu()">
+					<span>YOUNGEST歌曲 </span>
+					<span id="song-menu-arrow">▼</span>
+				</div>
+
+				<div class="song-menu-list" id="songMenuList">
+                    <a href="marionette.html" class="menu-link">Marionette</a>
+                    <a href="guardyou.html" class="menu-link">끝까지 안아 줄게 (Guard You)</a>
+                    <a href="drivinintohell.html" class="menu-link">Drivin' into Hell</a>
+                    <a href="yongest.html" class="menu-link">Yonge St.</a>
+                    <a href="babo.html" class="menu-link">babo</a>
+                    <a href="microphone.html" class="menu-link">Microphone</a>
+                    <div class="menu-link menu-current">million reasons</div>
+                    <a href="gypsophila.html" class="menu-link">안개꽃 (Gypsophila)</a>
+                    <a href="whatis.html" class="menu-link">what is..</a>
+                    <a href="nothingbut.html" class="menu-link">이것밖에는 없다 (nothing but)</a>
+                    <a href="thanksto.html" class="menu-link">땡스 투 (Thanks to)</a>
+                    <a href="seasonofus.html" class="menu-link">다시 돌아온 계절 (Season of Us)</a>
+                    <a href="anthem.html" class="menu-link">응원가 (Anthem)</a>
+                    <a href="bestsong.html" class="menu-link">best song</a>
+                    <a href="headinghome.html" class="menu-link">집으로 향한다 (Heading Home)</a>
+                    <a href="whatever.html" class="menu-link">whatever</a>
+                    <a href="notgonnalove.html" class="menu-link">사랑은 얼어 죽을 (Not Gonna Love)</a>
+                    <a href="strange.html" class="menu-link">STRANGE</a>
+                    <a href="spike.html" class="menu-link">SPIKE</a>
+                    <a href="fworld.html" class="menu-link">F world</a>
+                    <a href="natural.html" class="menu-link">natural</a>
+                    <a href="index.html" class="menu-link">Shut The Door</a>
+                    <a href="heyhoney.html" class="menu-link">Hey Honey</a>
+                    <a href="playground.html" class="menu-link">playground</a>
+                    <a href="waited.html" class="menu-link">오늘만을너만을이날을 (waited)</a>
+                    <a href="letitbesummer.html" class="menu-link">let it be summer</a>
+                    <a href="goodbyelove.html" class="menu-link">Goodbye, Love</a>
+				</div>  
+			</div>
+		</div>
+	</div>
+	
+	<h1 class="lyrics-page-title">《million reasons》</h1>
+	
+      <div class="tabs-container">
+      </div>
+	  
+    </header>
+
+    <!-- million reasons 分頁 -->
+    <div id="tab-video1" class="tab-content active" data-video-id="sWUwfjSU1o0">
+      <div id="video-wrapper-1" class="video-responsive-wrapper">
+          <div id="player-container-video1"></div> 
+          <div id="subtitle-video1" class="subtitle-overlay"></div>
+          <button id="exit-fs-btn-1" class="exit-fs-btn-global" onclick="exitFullscreenMode('video-wrapper-1')">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+      </div>
+      
+      <!-- million reasons 應援歌詞 -->
+      <div class="lyrics-container" id="stdsa-container">
+        <div class="lyrics-header">
+          <h3 class="lyrics-title">🎵 million reasons</h3>
+          <div class="font-controls">
+            <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', 2)">A +</button>
+          </div>
+        </div>
+        <div id="stdsa-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
+		  <p>The way you say my name</p>
+		  <p>sets my heart in flame</p>
+		  <p>When you look my way,</p>
+		  <p>don't wanna look away</p>
+		  <p>When you're next to me,</p>
+		  <p>I forget the games we play</p>
+		  <p>Yeah</p>
+		  <p>내게 웃어줄 때 따라 웃게 돼</p>
+		  <p>별말 안 했는데 말이 맞는 게</p>
+		  <p>날이 가면 갈수록 신기하기만 해</p>
+		  <p>Yeah, yeah</p>
+		  <p>So if you're questioning my love</p>
+		  <p>Look into my eyes, 이게 내 맘이야</p>
+		  <p>수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million reasons</p>
+		  <p>To love you, to love you</p>
+		  <p>(내 답이야) 수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million reasons</p>
+		  <p>To love you, to love you</p>
+		  <p>That's how I know my heart is yours</p>
+		  <p>매일이 아쉽고도 부족해 (Yeah, yeah)</p>
+		  <p>근데 내일을 또 기다리네 (Ah, yeah)</p>
+		  <p>모순 가득해</p>
+		  <p>But that's just how it is</p>
+		  <p>논리는 사라지고 (No, I don't need 'em)</p>
+		  <p>안되는 말이 되고 (No, I don't know exactly why)</p>
+		  <p>모든 정답은 다 네가 기준이야</p>
+		  <p>(Oh)</p>
+		  <p>So if you're questioning my love</p>
+		  <p>Look into my eyes, 이게 내 맘이야</p>
+		  <p>수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million rеasons</p>
+		  <p>To love you, to love you</p>
+		  <p>(내 답이야) 수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million rеasons</p>
+		  <p>To love you, to love you</p>
+		  <p>That's how I know my heart is yours</p>
+		  <p>That's how I know I can't let go</p>
+		  <p>That's how I know that I'm in love</p>
+		  <p>That's how I know I love ya, 이게 내 맘이야</p>
+		  <p>수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million reasons</p>
+		  <p>To love you, to love you</p>
+		  <p>(내 답이야) 수백에 수천 가지 끝도 없이</p>
+		  <p>아침이 올 때까지 할 수 있지</p>
+		  <p>Yeah, I got million reasons</p>
+		  <p>To love you, to love you</p>
+		  <p>That's how I know my heart is yours</p>
+		  <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="../js/guardyou-script.js"></script>
+
+</body>
+</html>
