@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../images/icon.png" type="image/png">
+	<link rel="apple-touch-icon" href="../images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<title>집으로 향한다</title>
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!--讀取使用者之前選的主題，把主題設定到 <html>-->
+	<script>
+		const savedTheme = localStorage.getItem('pageTheme') || 'light';
+		document.documentElement.setAttribute('data-theme', savedTheme);	
+		window.MY_VIDEO_ID = "ShutTheDoor_Singalong";
+	</script>
+	<!--<script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>-->
+	<style>
+		#stdsa-lyrics p, #stdmv-lyrics p{
+			opacity: 0.8;
+		}
+		[data-theme="dark"] #stdsa-lyrics p, 
+		[data-theme="dark"] #stdmv-lyrics p{
+			opacity: 0.5;
+		}
+	</style>
+  </head>
+<body>
+
+  <div class="content-wrapper">
+    <header class="header">
+    <div class="header-top">
+		<!-- 左側標題 -->
+        <div class="site-title">
+            YOUNGEST
+        </div>
+		
+	    <!-- 中間延伸線 -->
+		<div class="header-line"></div>	
+		
+		<!-- 右側功能區 -->
+		<div class="menu-container">
+			<!-- 首頁按鈕 -->
+			<a href="../" class="home-btn" aria-label="首頁">
+				<!-- 首頁 SVG 圖示 -->
+				<svg viewBox="0 0 24 24" fill="none">
+					<path d="M3 11L12 3L21 11V21H14V15H10V21H3V11Z"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linejoin="round"
+						  stroke-linecap="round"/>
+				</svg>
+			</a>
+
+			<!-- 說明按鈕 -->
+			<button class="home-btn" onclick="showInstruction()" aria-label="使用說明">
+				<svg viewBox="0 0 24 24" fill="none">
+					<circle cx="12" cy="12" r="9"
+							stroke="currentColor"
+							stroke-width="2"/>
+					<path d="M12 10V17"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+					<circle cx="12" cy="7" r="1"
+							fill="currentColor"/>
+				</svg>
+			</button>
+
+			<!-- 收合選單按鈕 -->
+			<button class="menu-toggle-btn"  onclick="toggleMenu()" aria-label="功能選單">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+					<path d="M3 6h18M3 12h18M3 18h18"
+						  stroke="currentColor"
+						  stroke-width="2"
+						  stroke-linecap="round"/>
+				</svg>
+			</button>
+			<!-- 點擊後展開的功能選單內容 -->
+			<div class="controls-dropdown" id="controlsDropdown">
+				<!-- 顯示主題 -->
+				<div class="theme-toggle-group">
+					<button class="theme-btn" id="btn-light" onclick="switchTheme('light')">☀️ 淺色</button>
+					<button class="theme-btn" id="btn-dark" onclick="switchTheme('dark')">🌙 深色</button>
+				</div>
+			    <!-- 其他歌曲 -->
+				<div class="menu-section-title song-menu-title" onclick="toggleSongMenu()">
+					<span>YOUNGEST歌曲 </span>
+					<span id="song-menu-arrow">▼</span>
+				</div>
+
+				<div class="song-menu-list" id="songMenuList">
+                    <a href="marionette.html" class="menu-link">Marionette</a>
+                    <a href="guardyou.html" class="menu-link">끝까지 안아 줄게 (Guard You)</a>
+                    <a href="drivinintohell.html" class="menu-link">Drivin' into Hell</a>
+                    <a href="yongest.html" class="menu-link">Yonge St.</a>
+                    <a href="babo.html" class="menu-link">babo</a>
+                    <a href="microphone.html" class="menu-link">Microphone</a>
+                    <a href="millionreasons.html" class="menu-link">million reasons</a>
+                    <a href="gypsophila.html" class="menu-link">안개꽃 (Gypsophila)</a>
+                    <a href="whatis.html" class="menu-link">what is..</a>
+                    <a href="nothingbut.html" class="menu-link">이것밖에는 없다 (nothing but)</a>
+                    <a href="thanksto.html" class="menu-link">땡스 투 (Thanks to)</a>
+                    <a href="seasonofus.html" class="menu-link">다시 돌아온 계절 (Season of Us)</a>
+                    <a href="anthem.html" class="menu-link">응원가 (Anthem)</a>
+                    <a href="bestsong.html" class="menu-link">best song</a>
+                    <div class="menu-link menu-current">집으로 향한다 (Heading Home)</div>
+                    <a href="whatever.html" class="menu-link">whatever</a>
+                    <a href="notgonnalove.html" class="menu-link">사랑은 얼어 죽을 (Not Gonna Love)</a>
+                    <a href="strange.html" class="menu-link">STRANGE</a>
+                    <a href="spike.html" class="menu-link">SPIKE</a>
+                    <a href="fworld.html" class="menu-link">F world</a>
+                    <a href="natural.html" class="menu-link">natural</a>
+                    <a href="index.html" class="menu-link">Shut The Door</a>
+                    <a href="heyhoney.html" class="menu-link">Hey Honey</a>
+                    <a href="playground.html" class="menu-link">playground</a>
+                    <a href="waited.html" class="menu-link">오늘만을너만을이날을 (waited)</a>
+                    <a href="letitbesummer.html" class="menu-link">let it be summer</a>
+                    <a href="goodbyelove.html" class="menu-link">Goodbye, Love</a>
+				</div>  
+			</div>
+		</div>
+	</div>
+	
+	<h1 class="lyrics-page-title">《집으로 향한다》</h1>
+	
+      <div class="tabs-container">
+      </div>
+	  
+    </header>
+
+    <!-- Heading Home 分頁 -->
+    <div id="tab-video1" class="tab-content active" data-video-id="tK2BZTbjlBQ">
+      <div id="video-wrapper-1" class="video-responsive-wrapper">
+          <div id="player-container-video1"></div> 
+          <div id="subtitle-video1" class="subtitle-overlay"></div>
+          <button id="exit-fs-btn-1" class="exit-fs-btn-global" onclick="exitFullscreenMode('video-wrapper-1')">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+      </div>
+      
+      <!-- Heading Home 應援歌詞 -->
+      <div class="lyrics-container" id="stdsa-container">
+        <div class="lyrics-header">
+          <h3 class="lyrics-title">🎵 집으로 향한다 (Heading Home)</h3>
+          <div class="font-controls">
+            <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', -2)">A -</button>
+            <button class="font-btn" onclick="adjustFontSize('stdsa-lyrics', 2)">A +</button>
+          </div>
+        </div>
+        <div id="stdsa-lyrics" style="text-align: center; font-size: 15px; transition: font-size 0.2s ease; max-height: 400px; overflow-y: auto; padding: 10px 0; position: relative;">
+		  <p>어둑한 하늘에</p>
+		  <p>굴러가는 버스 위에 앉은 채</p>
+		  <p>흐르는 음악에</p>
+		  <p>나지막히 따라 흥얼거리네</p>
+		  <p>빗발치던 고난을 피해 몸을 숙였어</p>
+		  <p>더 고요한 내일을 꿈꾸며</p>
+		  <p>터질듯한 가슴을 힘껏 부여잡고서</p>
+		  <p>괜찮을 거라 다독여왔어</p>
+		  <p>참으로 쉽지 않았다</p>
+		  <p>그렇다, 살아 돌아왔다</p>
+		  <p>전쟁 같은 날들을 견뎌왔다</p>
+		  <p>치열했다, 많이도 울었다</p>
+		  <p>그럼에도 결국엔 이겨냈다</p>
+		  <p>그렇게 나는 지금 집으로 향한다</p>
+		  <p>Mm, mm</p>
+		  <p>너무 멀어 보이던 그 길의 종착지엔</p>
+		  <p>달콤한 한숨이 기다렸고</p>
+		  <p>한 걸음도 버거워 끌다시피 한 몸은</p>
+		  <p>이제서야 잠을 청하겠지</p>
+		  <p>그렇다, 살아 돌아왔다</p>
+		  <p>전쟁 같은 날들을 견뎌왔다</p>
+		  <p>치열했다, 많이도 울었다</p>
+		  <p>그럼에도 결국엔 이겨냈다</p>
+		  <p>그렇게 나는 지금 집으로 향한다</p>
+		  <p>참 길고도 길었다</p>
+		  <p>그건 내 최선이었다</p>
+		  <p>포기하고 싶어도 주먹 꽉 쥔 채로</p>
+		  <p>나아가 여기 다다랐다</p>
+		  <p>오늘 난 여기 있다</p>
+		  <p>웃으며 앞을 바라볼 수 있다</p>
+		  <p>온 마음 다 쏟아낸 결과다</p>
+		  <p>이제서야 집으로 향한다</p>
+		  <p>그렇다, 살아 돌아왔다</p>
+		  <p>전쟁 같은 날들을 견뎌왔다</p>
+		  <p>치열했다, 많이도 울었다</p>
+		  <p>그럼에도 결국엔 이겨냈다</p>
+		  <p>그렇게 나는 지금 집으로 향한다</p>
+		  <p>Ooh</p>
+		  <p>Ooh</p>
+		  <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="../js/guardyou-script.js"></script>
+
+</body>
+</html>
