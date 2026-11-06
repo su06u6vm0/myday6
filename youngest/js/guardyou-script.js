@@ -5,6 +5,7 @@ const videoData = {
     'tab-video1': {
         id: tab.dataset.videoId,
         player: null,
+		start: parseInt(tab.dataset.start || 0), //讀取影片指定起始時間（秒）
         subEl: 'subtitle-video1',
         container: 'player-container-video1'
     }
@@ -58,7 +59,7 @@ function initVideo(tabId) {
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, // 絕對不偷播
+        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 },
         events:{
           onReady:function(event){
 
@@ -68,6 +69,11 @@ function initVideo(tabId) {
                   syncLyricsWithVideo(event.target,"stdsa-lyrics");
                   bindLyricsInteraction(event.target,"stdsa-lyrics");
               }
+
+			  // 如果有指定影片起始時間，就跳轉到指定位置
+			  if (vData.start > 0) {
+				  event.target.seekTo(vData.start, true);
+			  }
           }
       }
     });
