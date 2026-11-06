@@ -59,30 +59,26 @@ function initVideo(tabId) {
         width: '100%',
         height: '100%',
         host: 'https://www.youtube-nocookie.com',
-        playerVars: {
-            'autoplay': 0,
-            'rel': 0,
-            'playsinline': 1
-        },
-        events: {
-            onReady: function(event) {
+        playerVars: { 'autoplay': 0, 'rel': 0, 'playsinline': 1 }, 
+        events:{
+          onReady:function(event){
 
-                // 有指定影片起始時間，就跳轉到指定位置
-                if (vData.start > 0) {
-                    event.target.seekTo(vData.start, true);
-                }
+              loadSRT(vData.srt,vData.subEl,event.target);
 
-                // 確保影片維持暫停
-                event.target.pauseVideo();
-
-                loadSRT(vData.srt, vData.subEl, event.target);
-
-                if (tabId === "tab-video1") {
-                    syncLyricsWithVideo(event.target, "stdsa-lyrics");
-                    bindLyricsInteraction(event.target, "stdsa-lyrics");
-                }
-            }
-        }
+              if(tabId==="tab-video1"){
+                  syncLyricsWithVideo(event.target,"stdsa-lyrics");
+                  bindLyricsInteraction(event.target,"stdsa-lyrics");
+              }
+			  
+			  // 如果有指定影片起始時間，就跳轉到指定位置，不自動播放
+              if(vData.start > 0) {
+              	  event.target.cueVideoById({
+				   videoId: vData.id,
+			       startSeconds: vData.start
+			  });
+			}
+          }
+      }
     });
 }
 
