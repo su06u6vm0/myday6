@@ -2,6 +2,14 @@
 const videos = [
 
 {
+title:"Young K Solo Tour ＜YOUNGEST＞ in BANGKOK Behind",
+category:"幕後花絮",
+date:"2026.11.06",
+videoId:"s3iCL4g5_C4",
+description:"Behind"
+},
+
+{
 title:"[DAY6 VLOG] 강영현 브이로그 in 타이베이 | (딤섬 먹기엔) 하루가 짧다 🥢",
 category:"幕後花絮",
 date:"2026.10.30",
